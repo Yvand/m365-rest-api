@@ -1,0 +1,16 @@
+meta {
+  name: Show a specific version of a file
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/Shared%20Documents/testVersions.txt')/Versions(512)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

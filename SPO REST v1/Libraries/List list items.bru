@@ -1,0 +1,22 @@
+meta {
+  name: List list items
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items?$filter=ID eq 2&$select=ID, Title, Modified_x0020_By, Created_x0020_By, ContentType/Id,ContentType/Name&$expand=ContentType, Properties
+  body: none
+  auth: none
+}
+
+params:query {
+  $filter: ID eq 2
+  $select: ID, Title, Modified_x0020_By, Created_x0020_By, ContentType/Id,ContentType/Name
+  $expand: ContentType, Properties
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

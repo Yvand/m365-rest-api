@@ -1,0 +1,22 @@
+meta {
+  name: Update a group
+  type: http
+  seq: 3
+}
+
+patch {
+  url: https://graph.microsoft.com/v1.0/groups/b5dae598-2e47-4bf9-88af-9277c8d672fb
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "description": "new description",
+    "preferredLanguage": "fr-FR"
+  }
+}

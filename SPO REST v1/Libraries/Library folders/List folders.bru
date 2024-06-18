@@ -1,0 +1,20 @@
+meta {
+  name: List folders
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('docAutomate1')/items?$filter=ContentType eq 'Folder'&$select=Id, Title
+  body: none
+  auth: none
+}
+
+params:query {
+  $filter: ContentType eq 'Folder'
+  $select: Id, Title
+}
+
+headers {
+  Accept: application/json
+}

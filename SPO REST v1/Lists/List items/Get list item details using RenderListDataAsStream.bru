@@ -1,0 +1,53 @@
+meta {
+  name: Get list item details using RenderListDataAsStream
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetList(@listUrl)/RenderListDataAsStream?FilterField1=ID&FilterValue1=1&SortField=ID&SortDir=Desc&@listUrl='{{siteRelativePath}}/Lists/list1'
+  body: json
+  auth: none
+}
+
+params:query {
+  FilterField1: ID
+  FilterValue1: 1
+  SortField: ID
+  SortDir: Desc
+  @listUrl: '{{siteRelativePath}}/Lists/list1'
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json;odata=nometadata
+}
+
+body:json {
+  {
+    "parameters": {
+      "AddRequiredFields": "true",
+      "DatesInUtc": "true",
+      "RenderOptions": 2,
+      "ViewXml": "<View>
+          <ViewFields>
+              <FieldRef Name=\"ID\"/>
+              <FieldRef Name=\"Title\"/>
+              <FieldRef Name=\"_ComplianceTag\"/>
+              <FieldRef Name=\"_ComplianceTagWrittenTime\"/>
+          </ViewFields>
+          <Query>
+              <Where>
+              <Eq>
+                  <!--<FieldRef Name=\"ID\"/>
+                  <Value Type=\"Number\">2</Value>-->
+                  <FieldRef Name=\"_ComplianceTag\"/>
+                  <Value Type=\"String\">label1</Value>
+              </Eq>
+              </Where>
+          </Query>
+          <RowLimit Paged=\"TRUE\">10</RowLimit>
+      </View>"
+    }
+  }
+}

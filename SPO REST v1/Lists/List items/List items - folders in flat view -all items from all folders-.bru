@@ -1,0 +1,22 @@
+meta {
+  name: List items - folders in flat view -all items from all folders-
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists/getByTitle('listPostman2')/Items?$select=ID, Title, ContentType/Id,ContentType/Name, FileDirRef, FSObjType
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: ID, Title, ContentType/Id,ContentType/Name, FileDirRef, FSObjType
+  ~$filter: ID eq 2
+  ~$expand: ContentType, Properties
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

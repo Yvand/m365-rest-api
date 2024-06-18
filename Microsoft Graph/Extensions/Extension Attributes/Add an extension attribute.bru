@@ -1,0 +1,21 @@
+meta {
+  name: Add an extension attribute
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/applications/{{applicationObjectId}}/extensionProperties
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+       "name": "extensionAttribute1",
+       "dataType": "string",
+       "targetObjects": [
+           "User"
+       ]
+   }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: List drives in a site
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/drives
+  body: none
+  auth: none
+}
+
+params:query {
+  ~whatif: null
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

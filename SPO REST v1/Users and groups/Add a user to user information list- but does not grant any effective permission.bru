@@ -1,0 +1,23 @@
+meta {
+  name: Add a user to user information list- but does not grant any effective permission
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteUsers
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "__metadata": { "type": "SP.User" },
+      "LoginName": "i:0#.f|membership|ChristieC@M365x997769.OnMicrosoft.com"
+  }
+}

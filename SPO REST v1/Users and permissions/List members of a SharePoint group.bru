@@ -1,0 +1,22 @@
+meta {
+  name: List members of a SharePoint group
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups(167)/users
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}
+
+body:json {
+  {
+      "LoginName": "i:0#.f|membership|yvand@microsoft.com"
+  }
+}

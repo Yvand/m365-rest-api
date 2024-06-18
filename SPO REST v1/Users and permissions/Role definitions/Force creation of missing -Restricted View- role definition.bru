@@ -1,0 +1,20 @@
+meta {
+  name: Force creation of missing -Restricted View- role definition
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists/GetByTitle('Documents')/GetItemById(1)/GetSharingInformation?$expand=pickerSettings,permissionsInformation,sharingLinkTemplates,addressBarLinkSettings
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: pickerSettings,permissionsInformation,sharingLinkTemplates,addressBarLinkSettings
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

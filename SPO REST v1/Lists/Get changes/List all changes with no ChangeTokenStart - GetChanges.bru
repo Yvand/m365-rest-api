@@ -1,0 +1,39 @@
+meta {
+  name: List all changes with no ChangeTokenStart - GetChanges
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists('4dd447e3-f243-40ba-a132-a06ce04fcb82')/RootFolder/GetChanges?$expand=RelativeTime
+  body: json
+  auth: none
+}
+
+params:query {
+  $expand: RelativeTime
+  ~$top: 100
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}
+
+body:json {
+  {
+      "query": {
+          "Add": true,
+          "Update": false,
+          "SystemUpdate": false,
+          "DeleteObject": false,
+          "Move": false,
+          "Rename": false,
+          "Restore": false,
+          "Item": true,
+          "File": false,
+          "RecursiveAll": false,
+          "ChangeTokenStart": null
+      }
+  }
+}

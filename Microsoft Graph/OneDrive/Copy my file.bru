@@ -1,0 +1,21 @@
+meta {
+  name: Copy my file
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://yvandoutlook-my.sharepoint.com/personal/yvand_yvandoutlook_onmicrosoft_com/_api/v2.0/drive/root:/file1.txt:/action.copy
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+  Prefer: apiversion=2.1
+}
+
+body:json {
+  {"name": "renamed.txt", "parentReference": {"path": "folder1"}}
+}

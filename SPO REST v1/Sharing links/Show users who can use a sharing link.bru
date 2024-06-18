@@ -1,0 +1,16 @@
+meta {
+  name: Show users who can use a sharing link
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups/GetById(37)/users
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json;odata=verbose
+}

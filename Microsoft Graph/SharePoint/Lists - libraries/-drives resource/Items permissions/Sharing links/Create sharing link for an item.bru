@@ -1,0 +1,24 @@
+meta {
+  name: Create sharing link for an item
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/items/01ZNUDDPHYY74KIMRIJVH323FI7X5XP7KM/createLink
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "type": "view",
+    "password": "ThisIsMyPrivatePassword",
+    "scope": "anonymous"
+  //   "scope": "organization"
+  }
+}

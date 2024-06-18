@@ -1,0 +1,25 @@
+meta {
+  name: Add list item - the metadata type in the body CONTAINS the list title
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('listPostman2')/items
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+  If-Match: *
+}
+
+body:json {
+  {
+      "__metadata": { "type": "SP.Data.ListPostman2ListItem" },
+      "Title":"xitemRepro4"
+  }
+  
+}

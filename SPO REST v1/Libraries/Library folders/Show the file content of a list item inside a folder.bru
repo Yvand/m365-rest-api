@@ -1,0 +1,16 @@
+meta {
+  name: Show the file content of a list item inside a folder
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/wfsvc/af14f79448d84ecbabfba750569d0231')/Files('workflow.xaml')/$value
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Break role inheritance on a list AND remove all role assignments
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers_details')/breakroleinheritance(copyRoleAssignments=false, clearSubscopes=true)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  Content-Type: application/json;odata=nometadata
+}

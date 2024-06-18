@@ -1,0 +1,74 @@
+meta {
+  name: SendMail
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/me/sendMail
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
+
+body:json {
+  {
+    "message": {
+      "subject": "Meet for lunch?",
+      "body": {
+        "contentType": "Text",
+        "content": "The new cafeteria is open."
+      },
+      "toRecipients": [
+        {
+          "emailAddress": {
+            "address": "{{UserName}}"
+          }
+        }
+      ],
+      "ccRecipients": [
+        {
+          "emailAddress": {
+            "address": "{{UserName}}"
+          }
+        }
+      ]
+    },
+    "saveToSentItems": "false"
+  }
+}
+
+tests {
+  try {
+      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
+      {
+          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
+      }
+      else
+      {
+          if (bru.getEnvVar("UserEmail") === "")
+          {
+              console.log("You need manual set a **UserName** environment variable.");
+          }
+          else
+          {
+  //             if (pm.response.status === "Forbidden")
+              {
+                  console.log("You need to add user delegated permissions in your application to at least *Mail.Send* in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
+              }
+          }
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

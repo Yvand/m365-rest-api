@@ -1,0 +1,16 @@
+meta {
+  name: Search sites
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites?search=*&$select=webUrl, name, id
+  body: none
+  auth: none
+}
+
+params:query {
+  search: *
+  $select: webUrl, name, id
+}

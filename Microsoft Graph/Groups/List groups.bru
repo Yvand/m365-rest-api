@@ -1,0 +1,25 @@
+meta {
+  name: List groups
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/groups?$select=ID, displayName, groupTypes, mailEnabled, securityEnabled&$filter=startswith(DisplayName, 'EntracpTest')
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: ID, displayName, groupTypes, mailEnabled, securityEnabled
+  $filter: startswith(DisplayName, 'EntracpTest')
+  ~$count: true
+  ~$top: 30
+  ~$filter: displayName eq 'frteam1'
+  ~$filter: securityEnabled eq false
+  ~$filter: startswith(DisplayName, 'all company')
+}
+
+headers {
+  Content-Type: application/json
+}

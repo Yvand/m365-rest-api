@@ -1,0 +1,29 @@
+meta {
+  name: Add list item Copy
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/sites/{{siteId}}/lists/dd054b8e-e2b9-492b-bc05-472a01d5c118/items
+  body: json
+  auth: none
+}
+
+params:query {
+  ~whatif: null
+}
+
+headers {
+  Content-Type: application/json
+  ~Content-Type: application/json;charset=utf-8
+  ~Accept-Charset: UTF-8
+}
+
+body:json {
+  {
+      "fields": {
+          "Title": "new item from postman"
+      }
+  }
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Add list item
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('list1')/items
+  body: json
+  auth: none
+}
+
+params:query {
+  ~whatif: null
+}
+
+headers {
+  Content-Type: application/json
+  Accept-Charset: UTF-8
+  ~Content-Type: application/json;charset=utf-8
+}
+
+body:json {
+  {
+      "fields": {
+          "Title": "231211 new item from postman",
+          "date1": "2022-04-29T10:15:00+0200"
+      }
+  }
+}

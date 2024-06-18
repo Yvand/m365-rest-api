@@ -1,0 +1,29 @@
+meta {
+  name: Add application permission to site
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com::{{siteRelativePath}}:/permissions
+  body: json
+  auth: none
+}
+
+params:query {
+  ~$whatif: null
+}
+
+body:json {
+  {
+    "grantedToIdentities": [
+      {
+        "application": {
+          "displayName": "SPO sites.selected",
+          "id": "2a3cc9df-1240-44ce-a7b6-0f60ae141596"
+        }
+      }
+    ],
+    "roles": [ "fullcontrol" ]
+  }
+}

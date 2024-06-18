@@ -1,0 +1,20 @@
+meta {
+  name: Show a sharing link-Users
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups/GetById(37)/Users
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$expand: permissionsInformation
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Get drive details by driveId
+  type: http
+  seq: 12
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/{{UserId}}/drives('{{driveId}}')
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json; charset=utf-8
+}

@@ -1,0 +1,45 @@
+meta {
+  name: Search External Items
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "entityTypes": [
+          "microsoft.graph.externalItem"
+        ],
+        "contentSources": [
+          "/external/connections/connection_friendly_name"
+        ],
+        "query": {
+          "query_string": {
+            "query": "test"
+          }
+        },
+        "from": 0,
+        "size": 25,
+        "stored_fields": [
+          "number",
+          "shortdescription"
+        ]
+      }
+    ]
+  }
+}

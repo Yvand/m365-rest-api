@@ -1,0 +1,16 @@
+meta {
+  name: List list item thumbnails preview images
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/lists/Documents/items/1/driveItem/thumbnails
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}

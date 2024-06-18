@@ -1,0 +1,18 @@
+meta {
+  name: List items since delta Copy
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.1/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/drives/{{driveId}}/root/delta?$select=name, id, lastModifiedDateTime, file
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: name, id, lastModifiedDateTime, file
+  ~token: latest
+  ~$top: 200
+  ~$select: sharepointIds
+}

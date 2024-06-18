@@ -1,0 +1,30 @@
+meta {
+  name: List items in a folder - CAML query
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists/getByTitle('customers_details')/getItems?$select=ID, Title, ContentType/Id,ContentType/Name, FileDirRef, FSObjType
+  body: json
+  auth: none
+}
+
+params:query {
+  $select: ID, Title, ContentType/Id,ContentType/Name, FileDirRef, FSObjType
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "query": 
+      {
+          "ViewXml": "",
+          "FolderServerRelativeUrl": "{{siteRelativePath}}/Lists/customers_details/Total"
+      }
+  }
+}

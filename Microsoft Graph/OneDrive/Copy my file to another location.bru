@@ -1,0 +1,21 @@
+meta {
+  name: Copy my file to another location
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/me/drive/root:/file1.txt:/action.copy
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+  Prefer: apiversion=2.1
+}
+
+body:json {
+  {"name": "renamed.txt", "parentReference": {"path": "folder1"}}
+}

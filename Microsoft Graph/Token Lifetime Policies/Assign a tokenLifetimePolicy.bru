@@ -1,0 +1,17 @@
+meta {
+  name: Assign a tokenLifetimePolicy
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/servicePrincipals/d1ad6dfe-1386-4bcc-be06-fd047fce1a23/tokenLifetimePolicies/$ref
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "@odata.id": "https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies/e5ec7705-41bb-4053-b9b9-f17d767a969f"
+  }
+}

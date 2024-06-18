@@ -1,0 +1,40 @@
+meta {
+  name: Add group
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/groups
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "description": "{{groupName}}",
+    "displayName": "{{groupName}}",
+    "groupTypes": [
+      "Unified"
+    ],
+    "mailEnabled": false,
+    "mailNickname": "{{groupName}}",
+    "securityEnabled": false,
+    "owners@odata.bind": [
+      "https://graph.microsoft.com/v1.0/users/6e66e8d7-b422-43a2-8163-91ee59e54a58"
+    ],
+    "members@odata.bind": [
+      "https://graph.microsoft.com/v1.0/users/b10b38da-3f77-41fd-8eba-d80c9175388a",
+      "https://graph.microsoft.com/v1.0/users/3e866ea0-149b-4f45-819f-3e7879d3aa0f",
+      "https://graph.microsoft.com/v1.0/users/eba56dfd-b1c8-4026-b8f1-8888aad55027",
+      "https://graph.microsoft.com/v1.0/users/85e7989e-1cd9-4eee-8143-49ee6301ed9f",
+      "https://graph.microsoft.com/v1.0/users/046fc70c-1939-4f1f-94dd-a4483d800320",
+      "https://graph.microsoft.com/v1.0/users/d7b5a7c1-d62c-40ce-8486-2a8a063e1d73",
+      "https://graph.microsoft.com/v1.0/users/ff38cadd-019c-4881-9801-638a868db393"
+    ]
+  }
+}

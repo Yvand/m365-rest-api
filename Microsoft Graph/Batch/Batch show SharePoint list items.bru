@@ -1,0 +1,37 @@
+meta {
+  name: Batch show SharePoint list items
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/$batch?whatin
+  body: json
+  auth: none
+}
+
+params:query {
+  whatin: null
+}
+
+headers {
+  SdkVersion: postman-graph/v1.0
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "url": "/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('Documents')/items('1')",
+        "method": "GET",
+        "id": "1"
+      },
+      {
+        "url": "/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('Documents')/items('2')",
+        "method": "GET",
+        "id": "2"
+      }
+    ]
+  }
+}

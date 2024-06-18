@@ -1,0 +1,16 @@
+meta {
+  name: Show a sharing link
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups/GetById(37)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}

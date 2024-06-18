@@ -1,0 +1,30 @@
+meta {
+  name: Search users
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SP.UI.ApplicationPages.ClientPeoplePickerWebServiceInterface.clientPeoplePickerSearchUser
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "queryParams": {
+            "AllowEmailAddresses": true,
+            "AllowMultipleEntities": true,
+            "AllUrlZones": false,
+            "MaximumEntitySuggestions": 30,
+            "PrincipalSource": 15,
+            "PrincipalType": 1,
+            "QueryString": "alex"
+      }
+  }
+}

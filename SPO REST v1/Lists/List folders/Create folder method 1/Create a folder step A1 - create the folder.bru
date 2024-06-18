@@ -1,0 +1,25 @@
+meta {
+  name: Create a folder step A1 - create the folder
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists/getByTitle('list2')/Items
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json;odata=nometadata
+  Accept: application/json;odata=nometadata
+}
+
+body:json {
+  {
+      "Title": "postmanFolder1",
+      "FileLeafRef": "postmanFolder1",
+      "FileSystemObjectType": 1,
+      "ContentTypeId": "0x0120"
+  }
+}

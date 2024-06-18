@@ -1,0 +1,20 @@
+meta {
+  name: Search List Items in a specific folder using drives Copy
+  type: http
+  seq: 13
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/root:/folder1/inside folder1:/search(q='user')
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+  ~$select: *
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}

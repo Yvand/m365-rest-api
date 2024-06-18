@@ -1,0 +1,24 @@
+meta {
+  name: Add list item - NO metadata
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('list1')/items
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  Content-Type: application/json;odata=nometadata
+  If-Match: *
+}
+
+body:json {
+  {
+      "Title": "testPostman"
+  }
+  
+}

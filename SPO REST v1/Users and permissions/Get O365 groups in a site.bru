@@ -1,0 +1,23 @@
+meta {
+  name: Get O365 groups in a site
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('User Information List')/items?$filter=substringof('c:0o.c|federateddirectoryclaimprovider', Name )&$select=ID, Title, ContentType/Name, Name
+  body: none
+  auth: none
+}
+
+params:query {
+  $filter: substringof('c:0o.c|federateddirectoryclaimprovider', Name )
+  $select: ID, Title, ContentType/Name, Name
+  ~$expand: ContentType
+}
+
+headers {
+  Authorization: Bearer {{AppAccessToken}}
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Get files in a drive
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}-my.sharepoint.com/personal/admin_m365x997769_onmicrosoft_com/_api/v2.0/drives/{{driveId}}/root/children?$select=id,name,file,folder,size,lastModifiedDateTime,content.downloadUrl
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: id,name,file,folder,size,lastModifiedDateTime,content.downloadUrl
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+  Prefer: apiversion=2.1
+}

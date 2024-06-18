@@ -1,0 +1,28 @@
+meta {
+  name: Set SPWeb property
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+  X-HTTP-Method: PATCH
+  If-Match: *
+  ~Accept: application/json;odata=verbose
+  ~ContentType: application/json;odata=verbose
+  ~X-RequestDigest: 0x1020314098A4B211D620E7952601915BBF63F22D6FADCE7E968D6D780C9AAB0AD3E76CF9D5054D4AD70FE234A49DBE0786FB1E8B4CF8AD9284857C2F7D999526,20 Oct 2021 09:05:15 -0000
+}
+
+body:json {
+  {
+      "Title": "test translation EN",
+      "NavAudienceTargetingEnabled": true
+  }
+}

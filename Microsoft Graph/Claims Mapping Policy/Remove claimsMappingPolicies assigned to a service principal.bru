@@ -1,0 +1,11 @@
+meta {
+  name: Remove claimsMappingPolicies assigned to a service principal
+  type: http
+  seq: 8
+}
+
+delete {
+  url: https://graph.microsoft.com/v1.0/servicePrincipals(appId='ad8763d6-ea67-4c40-8949-14500e56b312')/claimsMappingPolicies/9320f313-75e4-47c8-b569-b20d21e854d1/$ref
+  body: json
+  auth: none
+}

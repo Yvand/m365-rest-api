@@ -1,0 +1,16 @@
+meta {
+  name: Show a folder
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/Shared Documents/folder1/inside folder1')
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json
+}

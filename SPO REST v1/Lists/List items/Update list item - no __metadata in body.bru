@@ -1,0 +1,26 @@
+meta {
+  name: Update list item - no __metadata in body
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('list1')/items(13)
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  Content-Type: application/json;odata=nometadata
+  If-Match: *
+  X-HTTP-Method: MERGE
+}
+
+body:json {
+  {
+      "Title": "item postman new value",
+      "person1StringId": "12"
+  }
+  
+}

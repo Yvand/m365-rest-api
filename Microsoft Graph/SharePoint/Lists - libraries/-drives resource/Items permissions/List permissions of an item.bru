@@ -1,0 +1,19 @@
+meta {
+  name: List permissions of an item
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/items/01ZNUDDPHYY74KIMRIJVH323FI7X5XP7KM/permissions
+  body: json
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}

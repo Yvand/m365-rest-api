@@ -1,0 +1,26 @@
+meta {
+  name: List list items using GetItems--
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('Documents')/GetItems(query=@v1)?@v1={"ViewXml":"<View><Query></Query><ViewFields><FieldRef Name='Id' /></ViewFields></View>"}
+  body: none
+  auth: none
+}
+
+params:query {
+  @v1: {"ViewXml":"<View><Query></Query><ViewFields><FieldRef Name='Id' /></ViewFields></View>"}
+  ~$top: 1
+  ~$select: Id, CAMTPID, CAMPrimaryCAM/Name, CAMPrimaryCAM/EMail, CAMExecStakeholder/Name, CAMExecStakeholder/EMail, CAMDynamicsACE/Name
+  ~$filter: (date1 ge '2022-01-10' or date1 eq null) and Id eq 6
+  ~$filter: startswith(Title, 'testnode')
+  ~$expand: CAMPrimaryCAM, CAMExecStakeholder, CAMDynamicsACE
+  ~$select: Id, Title, FileLeafRef, Created, Modified
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json;odata=nometadata
+}

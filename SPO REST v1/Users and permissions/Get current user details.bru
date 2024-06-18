@@ -1,0 +1,17 @@
+meta {
+  name: Get current user details
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{TenantPrefix}}.sharepoint.com{{SiteRelativePath}}/_api/Web/CurrentUser
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{AppAccessToken}}
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

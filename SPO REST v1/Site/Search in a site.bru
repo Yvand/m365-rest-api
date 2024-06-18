@@ -1,0 +1,21 @@
+meta {
+  name: Search in a site
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/sites?search=*&$select=webUrl
+  body: none
+  auth: none
+}
+
+params:query {
+  search: *
+  $select: webUrl
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

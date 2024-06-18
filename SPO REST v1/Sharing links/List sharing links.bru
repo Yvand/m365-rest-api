@@ -1,0 +1,20 @@
+meta {
+  name: List sharing links
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups?$select=Id, LoginName, Title
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: Id, LoginName, Title
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json;odata=verbose
+}

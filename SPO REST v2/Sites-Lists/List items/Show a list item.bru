@@ -1,0 +1,21 @@
+meta {
+  name: Show a list item
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/lists/Documents/items/1
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$filter: File_x0020_Type eq 'docx'
+  ~$select: Id, Title, ServerRedirectedEmbedUri
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,16 @@
+meta {
+  name: List items in recycle bin
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/recycleBin
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}

@@ -1,0 +1,22 @@
+meta {
+  name: List fields
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('list1')/fields?$filter=Title eq 'col1'&$select=Title, ReadOnlyField
+  body: none
+  auth: none
+}
+
+params:query {
+  $filter: Title eq 'col1'
+  $select: Title, ReadOnlyField
+  ~$select: ListItemEntityTypeFullName 
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

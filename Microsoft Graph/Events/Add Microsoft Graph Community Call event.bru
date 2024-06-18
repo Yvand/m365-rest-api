@@ -1,0 +1,80 @@
+meta {
+  name: Add Microsoft Graph Community Call event
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/me/events
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
+
+body:json {
+  {
+    "subject": "Microsoft Graph Community call",
+    "body": {
+      "contentType": "HTML",
+      "content": "Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i"
+    },
+    "start": {
+      "dateTime": "2018-09-04T08:00:00",
+      "timeZone": "Pacific Standard Time"
+    },
+    "end": {
+      "dateTime": "2018-09-04T09:00:00",
+      "timeZone": "Pacific Standard Time"
+    },
+    "location": {
+      "displayName": "Skype for Business"
+    },
+    "recurrence": {
+      "pattern": {
+        "type": "relativeMonthly",
+        "interval": 1,
+        "daysOfWeek": [
+          "Tuesday"
+        ],
+        "index": "first"
+      },
+      "range": {
+        "type": "noEnd",
+        "startDate": "2017-08-29"
+      }
+    }
+  }
+}
+
+tests {
+  try {
+      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
+      {
+          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
+      }
+      else
+      {
+  //         if (pm.response.status === "Forbidden")
+          {
+              console.log("You need to add user delegated permissions in your application to at least *Calendar.ReadWrite* in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
+          }
+          else
+          {
+              var json = JSON.parse(responseBody);
+              postman.setEnvironmentVariable("MessageId", json.value[0].id);
+          }
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

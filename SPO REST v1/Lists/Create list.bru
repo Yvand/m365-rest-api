@@ -1,0 +1,28 @@
+meta {
+  name: Create list
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+  If-Match: *
+}
+
+body:json {
+  {
+      "__metadata": { "type": "SP.List" },
+      "AllowContentTypes": true,
+      "BaseTemplate": 100,
+      "ContentTypesEnabled": true,
+      "Description": "List created from Postman",
+      "Title": "listPostman3"
+  }
+}

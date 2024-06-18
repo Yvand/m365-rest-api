@@ -1,0 +1,45 @@
+meta {
+  name: Update application
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://graph.microsoft.com/beta/applications/{{ApplicationId}}
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
+
+body:json {
+  {
+    "signInAudience": "AzureADMyOrg"
+  }
+}
+
+tests {
+  try {
+      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
+      {
+          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
+      }
+      else
+      {
+  //         if (pm.response.status === "Forbidden")
+          {
+              console.log("You need to add user delegated permissions in your application to at least *Directory.ReadWrite.All* in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
+          }
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

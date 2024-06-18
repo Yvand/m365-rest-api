@@ -1,0 +1,25 @@
+meta {
+  name: Update list content type
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('list2')/ContentTypes('0x0103004D942029A9832042A5058B899546EA74')
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+  If-Match: *
+  X-HTTP-Method: MERGE
+  odata-version: 3.0
+}
+
+body:json {
+  {
+      "Hidden": true
+  }
+}

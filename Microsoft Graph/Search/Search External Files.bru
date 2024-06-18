@@ -1,0 +1,38 @@
+meta {
+  name: Search External Files
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "entityTypes": [
+          "microsoft.graph.externalFile"
+        ],
+        "query": {
+          "query_string": {
+            "query": "test"
+          }
+        },
+        "from": 0,
+        "size": 25
+      }
+    ]
+  }
+}

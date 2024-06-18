@@ -1,0 +1,17 @@
+meta {
+  name: List sites
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/?$select=id, webUrl, displayName
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: id, webUrl, displayName
+  ~whatif: 
+  ~$select: WebUrl, createdDateTime
+}

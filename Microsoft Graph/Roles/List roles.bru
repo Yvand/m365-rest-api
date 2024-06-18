@@ -1,0 +1,22 @@
+meta {
+  name: List roles
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$select=rolePermissions&$filter=DisplayName eq 'Application Developer'
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: rolePermissions
+  $filter: DisplayName eq 'Application Developer'
+  ~$filter: DisplayName eq 'Conditional Access Administrator'
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

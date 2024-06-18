@@ -1,0 +1,30 @@
+meta {
+  name: Search sites in a site
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "requests": [
+          {
+              "entityTypes": [
+                  "site"
+              ],
+              "query": {
+                  "queryString": "path:https://tenant.sharepoint.com/sites/site_collection"
+              }
+          }
+      ]
+  }
+}

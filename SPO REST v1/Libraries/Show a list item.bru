@@ -1,0 +1,20 @@
+meta {
+  name: Show a list item
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items(1)?$select=Id, Title
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: Id, Title
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

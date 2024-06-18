@@ -1,0 +1,22 @@
+meta {
+  name: Show sharing information of a list
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('Documents')/GetSharingInformation?$expand=SharingAbilities, PickerSettings, AddressBarLinkSettings
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: SharingAbilities, PickerSettings, AddressBarLinkSettings
+  ~$select: permissionsInformation
+  ~$expand: permissionsInformation
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

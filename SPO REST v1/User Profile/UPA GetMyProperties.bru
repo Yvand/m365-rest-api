@@ -1,0 +1,21 @@
+meta {
+  name: UPA GetMyProperties
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SP.UserProfiles.PeopleManager/GetMyProperties
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: ListItemEntityTypeFullName 
+}
+
+headers {
+  Authorization: Bearer {{AppAccessToken}}
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

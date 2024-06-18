@@ -1,0 +1,15 @@
+meta {
+  name: Show a user inc- extension attribute
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/Aaduser1@yvand.onmicrosoft.com?$select=id, displayName, userPrincipalName, extension_7ade56f812b0472ba923102874ee083a_extensionAttribute1
+  body: json
+  auth: none
+}
+
+params:query {
+  $select: id, displayName, userPrincipalName, extension_7ade56f812b0472ba923102874ee083a_extensionAttribute1
+}

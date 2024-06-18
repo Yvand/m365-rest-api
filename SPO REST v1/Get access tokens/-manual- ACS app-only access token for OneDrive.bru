@@ -1,0 +1,28 @@
+meta {
+  name: -manual- ACS app-only access token for OneDrive
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://accounts.accesscontrol.windows.net/{{tenantId}}/tokens/OAuth/2
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  client_id: {{clientId}}@{{tenantId}}
+  client_secret: {{clientSecret}}
+  resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}-my.sharepoint.com@{{tenantId}}
+}
+
+tests {
+  // Extract access_token from the the and store it in environment variable UserAccessToken
+  var jsonData = res.getBody();
+  bru.setEnvVar("accessToken", jsonData.access_token);
+}

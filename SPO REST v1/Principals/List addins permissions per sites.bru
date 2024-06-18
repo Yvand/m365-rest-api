@@ -1,0 +1,27 @@
+meta {
+  name: List addins permissions per sites
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_api/web/AddinPermissions
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "addins": [
+          {
+              "serverRelativeUrl": "{{siteRelativePath}}",
+              "appIdentifiers": ["385f3e42-c58c-45c4-a6a7-c79d5520d8ba"]
+          }
+      ]
+  }
+}

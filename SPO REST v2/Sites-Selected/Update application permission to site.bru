@@ -1,0 +1,30 @@
+meta {
+  name: Update application permission to site
+  type: http
+  seq: 2
+}
+
+patch {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/permissions/aTowaS50fG1zLnNwLmV4dHw4ZGFjYjFmNy01NTVhLTRhNWUtOTE1MC04N2UwZjY0ODZjOTZAODAwYzcwYmMtYjA1Mi00NGZmLTljZTgtMmJhYzZiNTlmMjcy
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "grantedToIdentities": [
+      {
+        "application": {
+          "displayName": "testUserProfile",
+          "id": "8dacb1f7-555a-4a5e-9150-87e0f6486c96"
+        }
+      }
+    ],
+    "roles": [ "fullcontrol" ]
+  }
+}

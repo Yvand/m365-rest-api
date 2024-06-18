@@ -1,0 +1,23 @@
+meta {
+  name: Show a SharePoint group through list -User Information List-
+  type: http
+  seq: 13
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists/User Information List/items?$expand=fields&$filter=fields/Title eq 'spgroup1'
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: fields
+  $filter: fields/Title eq 'spgroup1'
+  ~$select: id
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+  Accept: application/json
+  Prefer: HonorNonIndexedQueriesWarningMayFailRandomly
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "SPO REST v1",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

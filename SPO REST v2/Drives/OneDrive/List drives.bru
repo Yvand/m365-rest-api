@@ -1,0 +1,29 @@
+meta {
+  name: List drives
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}-my.sharepoint.com/personal/admin_{{tenantPrefix}}_onmicrosoft_com/_api/v2.0/drives
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+tests {
+  try {
+      // Extract access_token from the the and store it in environment variable UserAccessToken
+      var jsonData = res.getBody();
+      bru.setEnvVar("driveId", jsonData.value[0].id);
+      console.log("Set the ID of the 1st drive in var {{driveId}}: " + jsonData.value[0].id);
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Delete a document Copy
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/Documents/Lorem%20ipsum.docx')
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+  IF-MATCH: *
+  X-HTTP-Method: DELETE
+}

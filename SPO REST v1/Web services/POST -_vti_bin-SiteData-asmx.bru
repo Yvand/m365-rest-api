@@ -1,0 +1,33 @@
+meta {
+  name: POST -_vti_bin-SiteData-asmx
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com/_vti_bin/SiteData.asmx
+  body: xml
+  auth: none
+}
+
+headers {
+  Content-Type: text/xml; charset="utf-8"
+  SOAPAction: "http://schemas.microsoft.com/sharepoint/soap/GetContent"
+}
+
+body:xml {
+  <?xml version="1.0" encoding="utf-8"?>
+  <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+      <GetContent xmlns="http://schemas.microsoft.com/sharepoint/soap/">
+      <objectType>SiteCollection</objectType>
+      <objectId>string</objectId>
+      <folderUrl>string</folderUrl>
+      <itemId>string</itemId>
+      <retrieveChildItems>true</retrieveChildItems>
+      <securityOnly>false</securityOnly>
+      <lastItemIdOnPage>string</lastItemIdOnPage>
+      </GetContent>
+  </soap:Body>
+  </soap:Envelope>
+}

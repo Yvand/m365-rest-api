@@ -1,0 +1,16 @@
+meta {
+  name: Add a role assignment to a PrincipaId in web scope
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/Web/RoleAssignments/AddRoleAssignment(PrincipalId=14, RoleDefId=1073741827)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

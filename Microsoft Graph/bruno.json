@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Microsoft Graph",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

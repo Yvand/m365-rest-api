@@ -1,0 +1,22 @@
+meta {
+  name: List addins per sites
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_api/web/AvailableAddIns
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "serverRelativeUrls": ["{{siteRelativePath}}", "/"]
+  }
+}

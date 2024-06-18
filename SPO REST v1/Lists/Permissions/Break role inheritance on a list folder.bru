@@ -1,0 +1,16 @@
+meta {
+  name: Break role inheritance on a list folder
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/lists/listPostman2/postmanFolder')/ListItemAllFields/breakroleinheritance(true)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}

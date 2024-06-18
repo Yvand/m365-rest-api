@@ -1,0 +1,22 @@
+meta {
+  name: Show a list
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('list1')
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$filter: startswith(fields/Title, 'lorem')
+  ~$filter: endswith(fields/Title, 'docx')
+  ~$expand: fields
+}
+
+headers {
+  Content-Type: application/json
+  Prefer: allowthrottleablequeries
+}

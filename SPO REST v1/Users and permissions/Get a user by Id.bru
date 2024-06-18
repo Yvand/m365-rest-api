@@ -1,0 +1,17 @@
+meta {
+  name: Get a user by Id
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/getuserbyid(14)
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{AppAccessToken}}
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

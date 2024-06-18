@@ -1,0 +1,19 @@
+meta {
+  name: List items inside a folder -itemid- using drives
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/items/01ZNUDDPBIBSJRX3HVQVD2HIK3ZQYHNV5Q/children
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}

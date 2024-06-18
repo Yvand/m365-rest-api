@@ -1,0 +1,24 @@
+meta {
+  name: Find a list folder based on its name
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:/sites/Contoso:/lists('Documents')/items?$filter=fields/FileLeafRef eq 'inside folder1' and fields/ContentType eq 'Folder'&$expand=fields
+  body: none
+  auth: none
+}
+
+params:query {
+  $filter: fields/FileLeafRef eq 'inside folder1' and fields/ContentType eq 'Folder'
+  $expand: fields
+  ~$filter: contains(fields/Title, 'Document')
+  ~$filter: endswith(fields/Title, 'lorem')
+  ~whatif: 
+}
+
+headers {
+  Content-Type: application/json
+  Prefer: allowthrottleablequeries
+}

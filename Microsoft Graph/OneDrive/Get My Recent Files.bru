@@ -1,0 +1,16 @@
+meta {
+  name: Get My Recent Files
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/me/drive/recent
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

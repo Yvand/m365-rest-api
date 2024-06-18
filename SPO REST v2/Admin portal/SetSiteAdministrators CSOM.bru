@@ -1,0 +1,34 @@
+meta {
+  name: SetSiteAdministrators CSOM
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_vti_bin/client.svc/ProcessQuery
+  body: xml
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: text/xml
+}
+
+body:xml {
+  <Request AddExpandoFieldTypeSuffix="true" SchemaVersion="15.0.0.0" LibraryVersion="16.0.0.0" ApplicationName=".NET Library" xmlns="http://schemas.microsoft.com/sharepoint/clientquery/2009">
+  	<Actions>
+  		<ObjectPath Id="8" ObjectPathId="7"/>
+  	</Actions>
+  	<ObjectPaths>
+  		<Method Id="7" ParentId="1" Name="SetSiteAdmin">
+  			<Parameters>
+  				<Parameter Type="String">https://m365x997769.sharepoint.com/sites/labels</Parameter>
+  				<Parameter Type="String">i:0#.f|membership|AdeleV@M365x997769.onmicrosoft.com</Parameter>
+  				<Parameter Type="Boolean">true</Parameter>
+  			</Parameters>
+  		</Method>
+  		<Constructor Id="1" TypeId="{268004ae-ef6b-4e9b-8425-127220d84719}"/>
+  	</ObjectPaths>
+  </Request>
+}

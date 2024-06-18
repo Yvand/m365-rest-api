@@ -1,0 +1,50 @@
+meta {
+  name: -manual- Get app-only access token
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+  SdkVersion: postman-graph/v1.0
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  client_id: {{clientId}}
+  client_secret: {{clientSecret}}
+  scope: https://graph.microsoft.com/.default
+}
+
+tests {
+  try {
+      if (bru.getEnvVar("ClientID") === "")
+      {
+          console.log("You need to enter *ClientID* environment variable first.");
+      }
+      if (bru.getEnvVar("ClientSecret") === "")
+      {
+          console.log("You need to enter *ClientSecret* environment variable first.");
+      }
+      if (bru.getEnvVar("TenantID") === "")
+      {
+          console.log("You need to enter *TenantID* environment variable first.");
+      }
+      else
+      {
+          var json = JSON.parse(responseBody);
+          postman.setEnvironmentVariable("OAuth_Token", json.access_token);
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+  
+}

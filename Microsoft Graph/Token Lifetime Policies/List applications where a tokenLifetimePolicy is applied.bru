@@ -1,0 +1,15 @@
+meta {
+  name: List applications where a tokenLifetimePolicy is applied
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies/e5ec7705-41bb-4053-b9b9-f17d767a969f/appliesTo?$select=id, appDisplayName
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: id, appDisplayName
+}

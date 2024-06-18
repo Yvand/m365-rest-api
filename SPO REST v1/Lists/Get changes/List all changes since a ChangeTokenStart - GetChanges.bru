@@ -1,0 +1,41 @@
+meta {
+  name: List all changes since a ChangeTokenStart - GetChanges
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Customers')/RootFolder/GetChanges?$expand=RelativeTime
+  body: json
+  auth: none
+}
+
+params:query {
+  $expand: RelativeTime
+  ~$top: 100
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}
+
+body:json {
+  {
+      "query": {
+          "Add": true,
+          "Update": false,
+          "SystemUpdate": false,
+          "DeleteObject": false,
+          "Move": false,
+          "Rename": false,
+          "Restore": false,
+          "Item": true,
+          "File": false,
+          "RecursiveAll": false,
+          "ChangeTokenStart": {
+              "StringValue": "1;3;27cba1ba-d93d-4540-8127-6d43fb47291d;637644442070900000;-1"
+          }
+      }
+  }
+}

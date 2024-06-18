@@ -1,0 +1,34 @@
+meta {
+  name: Search DriveItems
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "entityTypes": [
+          "microsoft.graph.driveItem"
+        ],
+        "query": {
+          "query_string": {
+            "query": "folder1"
+          }
+        },
+        "from": 0,
+        "size": 25
+      }
+    ]
+  }
+}

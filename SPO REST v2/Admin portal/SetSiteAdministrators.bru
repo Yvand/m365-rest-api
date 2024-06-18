@@ -1,0 +1,28 @@
+meta {
+  name: SetSiteAdministrators
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_api/SPO.Tenant/SetSiteAdministrators
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "siteAdministratorsFieldsData": {
+          "siteId": "3cb72dd5-29c0-4b0b-81d8-9d0934662163",
+          "siteAdministrators": [
+              "i:0#.f|membership|admin@M365x997769.onmicrosoft.com",
+              "i:0#.f|membership|AlexW@M365x997769.onmicrosoft.com"
+          ]
+      }
+  }
+}

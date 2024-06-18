@@ -1,0 +1,16 @@
+meta {
+  name: List application permission on site
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/permissions
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

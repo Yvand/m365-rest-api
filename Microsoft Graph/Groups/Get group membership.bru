@@ -1,0 +1,17 @@
+meta {
+  name: Get group membership
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/users/Aaduser1@yvand.onmicrosoft.com/microsoft.graph.getMemberGroups
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "securityEnabledOnly":false
+  }
+}

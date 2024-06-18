@@ -1,0 +1,16 @@
+meta {
+  name: Delete a Webhook
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers')/subscriptions('710fc875-18ed-43a7-9f53-5c3c06a24b6e')
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}

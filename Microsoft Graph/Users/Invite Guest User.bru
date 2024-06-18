@@ -1,0 +1,37 @@
+meta {
+  name: Invite Guest User
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/invitations
+  body: json
+  auth: none
+}
+
+headers {
+  SdkVersion: postman-graph/v1.0
+  Content-Type: application/json
+}
+
+body:json {
+  { 
+      "invitedUserDisplayName": "<Display Name of Invited User>", 
+      "invitedUserEmailAddress": "<Email Address of Invited User>", 
+      "invitedUserMessageInfo": {
+          "messageLanguage": "en-US",
+          "ccRecipients": [
+               {
+                  "emailAddress": {
+                      "name": "<Optional CC for Invitation>",
+                      "address": "<Optional CC Email Address for Invitation>"
+                   }
+               }
+          ],
+          "customizedMessageBody": "Hi, you have just been invited to Azure AD with Postman using Microsoft Graph!"
+       },
+      "sendInvitationMessage": true, 
+      "inviteRedirectUrl": "https://myapps.microsoft.com" 
+  } 
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Search in a site
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/search/query?querytext='ldapcp.wsp'
+  body: none
+  auth: none
+}
+
+params:query {
+  querytext: 'ldapcp.wsp'
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json
+  ~Accept: application/json
+}

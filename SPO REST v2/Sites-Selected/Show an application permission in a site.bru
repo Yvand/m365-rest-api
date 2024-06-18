@@ -1,0 +1,20 @@
+meta {
+  name: Show an application permission in a site
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/permissions/aTowaS50fG1zLnNwLmV4dHw4ZGFjYjFmNy01NTVhLTRhNWUtOTE1MC04N2UwZjY0ODZjOTZAODAwYzcwYmMtYjA1Mi00NGZmLTljZTgtMmJhYzZiNTlmMjcy
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: roles, grantedToIdentities
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

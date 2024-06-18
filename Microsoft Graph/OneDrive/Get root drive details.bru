@@ -1,0 +1,15 @@
+meta {
+  name: Get root drive details
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/{{UserId}}/drive/root/
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json; charset=utf-8
+}

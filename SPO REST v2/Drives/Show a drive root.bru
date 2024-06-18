@@ -1,0 +1,15 @@
+meta {
+  name: Show a drive root
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/drives/{{driveId}}/root?$select=sharepointIds,file
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: sharepointIds,file
+}

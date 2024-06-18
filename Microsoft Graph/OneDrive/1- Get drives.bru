@@ -1,0 +1,30 @@
+meta {
+  name: 1- Get drives
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/{{UserId}}/drives
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+  Prefer: apiversion=2.1
+}
+
+tests {
+  try {
+      // Extract access_token from the the and store it in environment variable UserAccessToken
+      var jsonData = res.getBody();
+      bru.setEnvVar("driveId", jsonData.value[0].id);
+      console.log("Set the ID of the 1st drive in var {{driveId}}: " + jsonData.value[0].id);
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

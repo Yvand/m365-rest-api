@@ -1,0 +1,21 @@
+meta {
+  name: List list items Copy
+  type: http
+  seq: 12
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items?$select=Id, Title, ServerRedirectedEmbedUri
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: Id, Title, ServerRedirectedEmbedUri
+  ~$filter: File_x0020_Type eq 'docx'
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

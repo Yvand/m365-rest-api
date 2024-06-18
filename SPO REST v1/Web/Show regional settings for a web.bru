@@ -1,0 +1,23 @@
+meta {
+  name: Show regional settings for a web
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/Web/RegionalSettings
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$expand: AllProperties, Lists,ParentWeb,RegionalSettings/TimeZone,WebInfos
+  ~$select: Title, Description, Language, AllProperties/vti_x005f_defaultlanguage, IsMultilingual
+  ~$expand: Lists,ParentWeb,RegionalSettings/TimeZone,WebInfos,RoleAssignments/Member,RoleAssignments/RoleDefinitionBindings
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json
+  ~Accept: application/json
+}

@@ -1,0 +1,26 @@
+meta {
+  name: POST -_vti_bin-Webs-asmx WebUrlFromPageUrl
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com/_vti_bin/Webs.asmx
+  body: xml
+  auth: none
+}
+
+headers {
+  Content-Type: text/xml; charset="utf-8"
+}
+
+body:xml {
+  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://schemas.microsoft.com/sharepoint/soap/">
+      <soapenv:Header/>
+      <soapenv:Body>
+          <soap:WebUrlFromPageUrl>
+              <soap:pageUrl>https://m365x997769.sharepoint.com/sites/Contoso/SitePages/page1.aspx</soap:pageUrl>
+          </soap:WebUrlFromPageUrl>
+      </soapenv:Body>
+  </soapenv:Envelope>
+}

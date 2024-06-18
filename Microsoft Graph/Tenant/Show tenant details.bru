@@ -1,0 +1,15 @@
+meta {
+  name: Show tenant details
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.windows.net/v2/800c70bc-b052-44ff-9ce8-2bac6b59f272/tenantDetails/800c70bc-b052-44ff-9ce8-2bac6b59f272/serviceInfo?api-version=1.6-internal
+  body: none
+  auth: none
+}
+
+params:query {
+  api-version: 1.6-internal
+}

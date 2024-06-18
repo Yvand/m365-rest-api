@@ -1,0 +1,16 @@
+meta {
+  name: Add a permission to a list
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('listPostman2')/roleassignments/addroleassignment(principalid=4, roledefid=1073741826)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}

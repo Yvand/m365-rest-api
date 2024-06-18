@@ -1,0 +1,24 @@
+meta {
+  name: Grant a user access to a SharePoint site -KO-
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:/sites/Contoso:/permissions
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "roles": ["write"],
+    "grantedToIdentitiesV2": [{
+      "siteUser": {
+        "id": "11",
+        "displayName": "MOD Administrator",
+        "loginName": "admin@m365x997769.onmicrosoft.com"
+      }
+    }]
+  }
+}

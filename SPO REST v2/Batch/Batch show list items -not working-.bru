@@ -1,0 +1,33 @@
+meta {
+  name: Batch show list items -not working-
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/$batch
+  body: json
+  auth: none
+}
+
+headers {
+  SdkVersion: postman-graph/v1.0
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "url": "https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('Documents')/items('1')",
+        "method": "GET",
+        "id": "1"
+      },
+      {
+        "url": "https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('Documents')/items('2')",
+        "method": "GET",
+        "id": "2"
+      }
+    ]
+  }
+}

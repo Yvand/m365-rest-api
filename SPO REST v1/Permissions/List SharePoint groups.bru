@@ -1,0 +1,21 @@
+meta {
+  name: List SharePoint groups
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/Web/SiteGroups
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$filter: LoginName eq 'POD APAC %26 GCR - Contributors'
+  ~$filter: LoginName eq 'POD CEE - Contributors'
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

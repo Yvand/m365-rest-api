@@ -1,0 +1,26 @@
+meta {
+  name: Create a folder step A2 - Set the FileLeafRef
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('list2')/items(32)
+  body: json
+  auth: none
+}
+
+headers {
+  IF-MATCH: *
+  X-HTTP-Method: PATCH
+  Content-Type: application/json;odata=nometadata
+  Accept: application/json;odata=nometadata
+}
+
+body:json {
+  {
+      "Title": "postmanFolder1",
+      "FileLeafRef": "postmanFolder1"
+  }
+  
+}

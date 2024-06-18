@@ -1,0 +1,29 @@
+meta {
+  name: Copy an item
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/items/01ZNUDDPFE4JRGZ2Z65VHJFJ5QXSXIJPPD/copy
+  body: json
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "parentReference": {
+          "driveId": "b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsN-WrlNFIJTr5zwDZDHD6R",
+          "id": "01ZNUDDPF32N4QVNCJIFCZ6KAJJLM6DM35"
+      },
+      "name": "User authN ADFS root team site.saz"
+  }
+}

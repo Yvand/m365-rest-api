@@ -1,0 +1,23 @@
+meta {
+  name: Create list item in a folder - ListData-svc -KO-
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_vti_bin/ListData.svc/listPostman2
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "Title": "Item X",
+      "Path": "{{siteRelativePath}}/Lists/listPostman2/postmanFolder"
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Search my OneDrive
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/me/drive/root/search(q='finance')?select=name,id,webUrl
+  body: none
+  auth: none
+}
+
+params:query {
+  select: name,id,webUrl
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

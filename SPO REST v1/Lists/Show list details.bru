@@ -1,0 +1,20 @@
+meta {
+  name: Show list details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('User Information List')
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: ListItemEntityTypeFullName 
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json;odata=nometadata
+}

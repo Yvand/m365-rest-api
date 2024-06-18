@@ -1,0 +1,21 @@
+meta {
+  name: Show site details
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/site?$expand=AllProperties
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: AllProperties
+  ~$select: Title, Description, Language, AllProperties/vti_x005f_defaultlanguage, IsMultilingual
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json
+}

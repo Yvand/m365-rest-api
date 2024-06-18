@@ -1,0 +1,11 @@
+meta {
+  name: List extension attributes
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/applications/{{applicationObjectId}}/extensionProperties
+  body: json
+  auth: none
+}

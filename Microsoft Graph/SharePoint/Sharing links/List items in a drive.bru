@@ -1,0 +1,20 @@
+meta {
+  name: List items in a drive
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/root/children?$select=name, id
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: name, id
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Delete a specific version of a file Copy
+  type: http
+  seq: 9
+}
+
+delete {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/Shared%20Documents/testVersions.txt')/Versions(1024)
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

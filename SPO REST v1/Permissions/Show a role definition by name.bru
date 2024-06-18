@@ -1,0 +1,16 @@
+meta {
+  name: Show a role definition by name
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/roledefinitions/getbyname('Modification')
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

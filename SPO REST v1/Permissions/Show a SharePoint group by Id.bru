@@ -1,0 +1,20 @@
+meta {
+  name: Show a SharePoint group by Id
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups/GetById(5)?$select=Id, Title, LoginName
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: Id, Title, LoginName
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,26 @@
+meta {
+  name: UPA GetUserProfilePropertyFor
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@a,propertyName=@p)?@a='i:0%23.f|membership|adelev@{{tenantPrefix}}.onmicrosoft.com'&@p='Manager'
+  body: none
+  auth: none
+}
+
+params:query {
+  @a: 'i:0%23.f|membership|adelev@{{tenantPrefix}}.onmicrosoft.com'
+  @p: 'Manager'
+  ~@a: ''i%3A0%23.f%7Cmembership%7Cyvand%40yvandoutlook.onmicrosoft.com'
+  ~@p: 'SPS-DistinguishedName'
+  ~@p: 'SPS-JobTitle'
+  ~@p: 'SPS-MUILanguages'
+}
+
+headers {
+  Authorization: Bearer {{AppAccessToken}}
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Show request digest -FormDigestValue-
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/contextinfo?$select=FormDigestValue
+  body: xml
+  auth: none
+}
+
+params:query {
+  $select: FormDigestValue
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}
+
+tests {
+  var jsonData = res.getBody();
+  bru.setEnvVar("requestDigest", jsonData.FormDigestValue);
+}

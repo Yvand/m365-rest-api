@@ -1,0 +1,35 @@
+meta {
+  name: Create a sharing link for an item
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/Shared Documents/DISNEY100_1920x1080HD resized.jpg')/ListItemAllFields/ShareLink
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "request": {
+          "createLink": true,
+          "settings": {
+              "allowAnonymousAccess": true,
+              "trackLinkUsers": false,
+              "linkKind": 4,
+              "expiration": "20230925T000000+0200",
+              "role": 1,
+              "restrictShareMembership": false,
+              "updatePassword": false,
+              "password": "",
+              "scope": 0
+          }
+      }
+  }
+}

@@ -1,0 +1,16 @@
+meta {
+  name: List driveItem permissions
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/lists/Documents/items/1/driveItem/permissions
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}

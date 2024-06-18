@@ -1,0 +1,16 @@
+meta {
+  name: Show list content type
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('list2')/ContentTypes('0x0103004D942029A9832042A5058B899546EA74')
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

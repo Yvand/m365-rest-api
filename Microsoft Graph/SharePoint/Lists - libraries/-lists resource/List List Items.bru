@@ -1,0 +1,43 @@
+meta {
+  name: List List Items
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('list1')/items?$expand=fields&$filter=fields/Title eq 'manual'
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: fields
+  $filter: fields/Title eq 'manual'
+  ~$filter: startswith(fields/Title, 'lorem')
+  ~$filter: endswith(fields/Title, 'docx')
+}
+
+headers {
+  Content-Type: application/json
+  Prefer: allowthrottleablequeries
+}
+
+tests {
+  try {
+      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
+      {
+          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
+      }
+      else
+      {
+  //         if (pm.response.status === "Forbidden")
+          {
+              console.log("You need to add user delegated permissions in your application to at least *Sites.Read.All* in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
+          }
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

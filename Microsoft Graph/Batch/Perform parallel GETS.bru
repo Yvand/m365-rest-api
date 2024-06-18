@@ -1,0 +1,33 @@
+meta {
+  name: Perform parallel GETS
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/$batch
+  body: json
+  auth: none
+}
+
+headers {
+  SdkVersion: postman-graph/v1.0
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "url": "/users?$select=displayName,jobTitle,userPrincipalName",
+        "method": "GET",
+        "id": "1"
+      },
+      {
+        "url": "/groups?$top=30&$filter=startswith(DisplayName, 'admini')",
+        "method": "GET",
+        "id": "2"
+      }
+    ]
+  }
+}

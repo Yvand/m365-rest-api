@@ -1,0 +1,21 @@
+meta {
+  name: List SharePoint groups
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/Web/SiteGroups
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: Id, LoginName, PrincipalType
+  ~$filter: LoginName eq 'dev_CAM Members'
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json;odata=nometadata
+}

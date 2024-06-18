@@ -1,0 +1,20 @@
+meta {
+  name: Show list token
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Customers')/RootFolder/Properties
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: ChangeToken
+}
+
+headers {
+  Accept: application/json; odata=nometadata
+  ContentType: application/json
+}

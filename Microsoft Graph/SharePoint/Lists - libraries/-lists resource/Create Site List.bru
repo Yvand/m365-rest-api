@@ -1,0 +1,34 @@
+meta {
+  name: Create Site List
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/sites/root/lists
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "displayName": "PostmanList",
+      "columns": [
+          {
+              "name": "Author",
+              "text": {}
+          },
+          {
+              "name": "PageCount",
+              "number": {}
+          }
+      ],
+      "list": {
+          "template": "genericList"
+      }
+  }
+}

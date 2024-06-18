@@ -1,0 +1,16 @@
+meta {
+  name: v1-0 -metadata
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/$metadata
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata.metadata=full
+  SdkVersion: postman-graph/v1.0
+}

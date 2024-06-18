@@ -1,0 +1,20 @@
+meta {
+  name: Add a RoleAssignment
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/RoleAssignments/addroleassignment(principalid=12, roledefid=1073741830)
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: Id, Name
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

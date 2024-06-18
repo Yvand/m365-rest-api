@@ -1,0 +1,15 @@
+meta {
+  name: List drives
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/drives?$select=id, name
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: id, name
+}

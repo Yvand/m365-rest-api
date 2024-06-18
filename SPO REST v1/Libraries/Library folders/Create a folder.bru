@@ -1,0 +1,23 @@
+meta {
+  name: Create a folder
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/folders
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+  If-Match: *
+}
+
+body:json {
+  {
+    "ServerRelativeUrl": "{{siteRelativePath}}/lists/customers_details/newfoldertest"
+  }
+}

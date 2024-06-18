@@ -1,0 +1,30 @@
+meta {
+  name: Add a user
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/users
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  
+  {
+    "accountEnabled": true,
+    "displayName": "{{userName}}",
+    "mailNickname": "{{userName}}",
+    "userPrincipalName": "{{userName}}@{{tenantPrefix}}.onmicrosoft.com",
+    "passwordProfile" : {
+      "forceChangePasswordNextSignIn": false,
+      "password": "{{$randomPassword}}+="
+    }
+  }
+}

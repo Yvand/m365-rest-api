@@ -1,0 +1,29 @@
+meta {
+  name: ACS delegated token step 2 -using the authZ code got in step 1-
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://accounts.accesscontrol.windows.net/{{tenantId}}/tokens/OAuth/2
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Postman/7.36.1 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36
+}
+
+body:form-urlencoded {
+  resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}.sharepoint.com@{{tenantId}}
+  redirect_uri: https://app.getpostman.com/oauth2/callback
+  grant_type: authorization_code
+  code: PAQABAAEAAAD--DLA3VO7QrddgJg7WevruY2Utp3yCcyKvQUuCBuE8iT786-vxqcMGFQkQmRIQcudVQTHK3A5DCNkRuHhEZ5L-LBMan4GxcxuDNj5FYiEK2GN7COrBzDwL0q-Wh4XY1io12C8RhwmSkm169TOiG-9vEpc7ZI9hQOrOMYEAKoIQNyCyQsBMTqlN1Y9mNUrqqYSEunSNXdJpr2oaDgoH2WT7ZRgX_lgCCY5H8cNBJVUJq86Bs3bduYOXUyhFri-MQZRCOFH3LQNavJZi1jRBHFDDtP8ae2SJnd2ZhrFahRm1Qg_vLerZDVGHEMlEM0MxrfjjsrMEeVjozcqRQ1n7ZJrIDuRZjSUbyYjd5laHe-Q_CAA
+  client_id: {{clientId}}@{{tenantId}}
+  client_secret: {{clientSecret}}
+}
+
+tests {
+  var json = JSON.parse(responseBody);
+  postman.setEnvironmentVariable("accessToken", json.access_token);
+}

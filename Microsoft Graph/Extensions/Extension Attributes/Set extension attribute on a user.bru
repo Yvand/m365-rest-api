@@ -1,0 +1,17 @@
+meta {
+  name: Set extension attribute on a user
+  type: http
+  seq: 4
+}
+
+patch {
+  url: https://graph.microsoft.com/v1.0/users/Aaduser1@yvand.onmicrosoft.com
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "extension_7ade56f812b0472ba923102874ee083a_extensionAttribute1": "value1"
+  }
+}

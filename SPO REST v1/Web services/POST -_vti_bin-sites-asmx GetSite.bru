@@ -1,0 +1,27 @@
+meta {
+  name: POST -_vti_bin-sites-asmx GetSite
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com/_vti_bin/sites.asmx
+  body: xml
+  auth: none
+}
+
+headers {
+  Content-Type: text/xml; charset=utf-8
+  ~SOAPAction: http://schemas.microsoft.com/sharepoint/soap/GetContent
+}
+
+body:xml {
+  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://schemas.microsoft.com/sharepoint/soap/">
+      <soapenv:Header/>
+      <soapenv:Body>
+          <GetSite xmlns="http://schemas.microsoft.com/sharepoint/soap/">
+              <SiteUrl>https://m365x997769.sharepoint.com/</SiteUrl>
+          </GetSite>
+      </soapenv:Body>
+  </soapenv:Envelope>
+}

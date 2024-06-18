@@ -1,0 +1,16 @@
+meta {
+  name: Get my files shared with me
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/me/drive/sharedWithMe
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

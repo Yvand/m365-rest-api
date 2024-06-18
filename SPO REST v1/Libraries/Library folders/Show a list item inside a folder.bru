@@ -1,0 +1,21 @@
+meta {
+  name: Show a list item inside a folder
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/wfsvc/af14f79448d84ecbabfba750569d0231/workflow.xaml')?$select=Name, MajorVersion, TimeLastModified, ModifiedBy/Email, MajorVersion&$expand=ModifiedBy
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: Name, MajorVersion, TimeLastModified, ModifiedBy/Email, MajorVersion
+  $expand: ModifiedBy
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}

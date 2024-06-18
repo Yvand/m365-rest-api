@@ -1,0 +1,19 @@
+meta {
+  name: SPO REST v2 app-only access token -requires certificate auth-
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  scope: https://{{tenantPrefix}}.sharepoint.com/.default
+  client_id: {{clientId}}
+  client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+  client_assertion: <CERT_SIGNED_STUFF>
+  grant_type: client_credentials
+}

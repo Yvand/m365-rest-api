@@ -1,0 +1,21 @@
+meta {
+  name: Get current user
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/currentuser?$expand=UserId
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: UserId
+  ~$select: LoginName
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

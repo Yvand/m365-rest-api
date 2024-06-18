@@ -1,0 +1,49 @@
+meta {
+  name: Show file content of an item Copy
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/items/root:/folder1/inside folder1/1. DisableOptimization.txt:/content
+  body: json
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "parentReference": {
+          "driveId": "b!ditaWjXc_U6GTH1UsDc8_8il5KVbbDVJrKfOQc8i6txksP1pufm7Tr-F3oPSJAkk",
+          "id": "01XQXTXQF6Y2GOVW7725BZO354PWSELRRZ"
+      },
+      "name": "contoso.txt"
+  }
+}
+
+tests {
+  try {
+      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
+      {
+          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
+      }
+      else
+      {
+  //         if (pm.response.status === "Forbidden")
+          {
+              console.log("You need to add user delegated permissions in your application to at least *Sites.Read.All* in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
+          }
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

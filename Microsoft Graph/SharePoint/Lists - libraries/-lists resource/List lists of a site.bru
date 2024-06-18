@@ -1,0 +1,20 @@
+meta {
+  name: List lists of a site
+  type: http
+  seq: 15
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists
+  body: none
+  auth: none
+}
+
+params:query {
+  ~whatif: null
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+}

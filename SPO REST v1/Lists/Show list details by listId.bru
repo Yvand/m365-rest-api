@@ -1,0 +1,20 @@
+meta {
+  name: Show list details by listId
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists(guid'c81437c2-f745-4b6d-9d7d-dec826708c02')
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: DefaultView,Fields,Hidden,BaseTemplate,Title,Id,ListItemEntityTypeFullName,DefaultView/ViewFields/Items,Fields/Metadata,Fields/Id,Fields/EntityPropertyName,Fields/Title,Fields/Description,Fields/DefaultValue,Fields/FieldTypeKind,Fields/TypeAsString,Fields/DisplayFormat,Fields/Hidden,Fields/Required,Fields/ReadOnlyField,Fields/AllowMultipleValues,Fields/MaxLength,Fields/MaximumValue,Fields/MinimumValue,Fields/LookupField,Fields/LookupList,Fields/InternalName,Fields/Choices,Fields/PrimaryFieldId,Fields/AnchorId,Fields/SspId,Fields/TermSetId,Fields/Sortable,Fields/Filterable
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

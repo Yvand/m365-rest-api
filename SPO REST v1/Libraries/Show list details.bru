@@ -1,0 +1,21 @@
+meta {
+  name: Show list details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('wfsvc')?$select=ID, Title, EnableVersioning
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: ID, Title, EnableVersioning
+  ~$filter: ID eq 1
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

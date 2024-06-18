@@ -1,0 +1,20 @@
+meta {
+  name: List items using drives Copy
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsN-WrlNFIJTr5zwDZDHD6R/root/children
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+  ~$select: id, name. path, webUrl
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}

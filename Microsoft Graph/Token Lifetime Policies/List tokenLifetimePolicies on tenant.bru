@@ -1,0 +1,15 @@
+meta {
+  name: List tokenLifetimePolicies on tenant
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies?$select=id, displayName, definition
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: id, displayName, definition
+}

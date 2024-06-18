@@ -1,0 +1,20 @@
+meta {
+  name: List site groups members
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups/GetById(32)/users?$select=LoginName, Title
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: LoginName, Title
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json
+}

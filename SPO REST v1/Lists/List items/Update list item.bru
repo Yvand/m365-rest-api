@@ -1,0 +1,27 @@
+meta {
+  name: Update list item
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('listPostman2')/items(4)
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+  If-Match: *
+  X-HTTP-Method: MERGE
+}
+
+body:json {
+  {
+      "__metadata": { "type": "SP.Data.ListPostman2ListItem" },
+      "Title":"xitemRepro4",
+      "OData__x0063_ol1": "newValue"
+  }
+  
+}

@@ -1,0 +1,20 @@
+meta {
+  name: UPA getPropertiesFor
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SP.UserProfiles.PeopleManager/getPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|adelev@{{tenantPrefix}}.onmicrosoft.com'
+  body: none
+  auth: none
+}
+
+params:query {
+  @v: 'i:0%23.f|membership|adelev@{{tenantPrefix}}.onmicrosoft.com'
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

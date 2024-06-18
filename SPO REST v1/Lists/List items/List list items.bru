@@ -1,0 +1,28 @@
+meta {
+  name: List list items
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('Customers')/items?$select=CAMTPID&$top=5000
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: CAMTPID
+  $top: 5000
+  ~$top: 1
+  ~$select: Id, CAMTPID, CAMPrimaryCAM/Name, CAMPrimaryCAM/EMail, CAMExecStakeholder/Name, CAMExecStakeholder/EMail, CAMDynamicsACE/Name
+  ~$filter: (date1 ge '2022-01-10' or date1 eq null) and Id eq 6
+  ~$filter: startswith(Title, 'testnode')
+  ~$expand: CAMPrimaryCAM, CAMExecStakeholder, CAMDynamicsACE
+  ~$select: Id, Title, FileLeafRef, Created, Modified
+  ~$filter: startswith(CAMTPID, '50122822')
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json;odata=nometadata
+}

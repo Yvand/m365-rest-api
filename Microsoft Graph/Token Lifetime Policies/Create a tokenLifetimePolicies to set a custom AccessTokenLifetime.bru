@@ -1,0 +1,21 @@
+meta {
+  name: Create a tokenLifetimePolicies to set a custom AccessTokenLifetime
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "definition": [
+      "{\"TokenLifetimePolicy\":{\"Version\":1,\"AccessTokenLifetime\":\"01:30:00\"}}"
+    ],
+    "displayName": "Policy test Postman",
+    "isOrganizationDefault": false
+  }
+}

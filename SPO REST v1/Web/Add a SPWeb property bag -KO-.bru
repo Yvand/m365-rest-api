@@ -1,0 +1,24 @@
+meta {
+  name: Add a SPWeb property bag -KO-
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/AllProperties
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+  X-HTTP-Method: PATCH
+  If-Match: *
+}
+
+body:json {
+  {
+      "custom_changeToken": "yoyo"
+  }
+}

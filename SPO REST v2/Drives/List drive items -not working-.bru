@@ -1,0 +1,16 @@
+meta {
+  name: List drive items -not working-
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/drives/{{driveId}}/items?$expand=analytics($expand=allTime)&$filter=startswith(title, 'test')
+  body: none
+  auth: none
+}
+
+params:query {
+  $expand: analytics($expand=allTime)
+  $filter: startswith(title, 'test')
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Grant Sites-Selected permission on a specific site
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/permissions
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "roles": ["read"],
+    "grantedToIdentities": [{
+      "application": {
+        "id": "2a3cc9df-1240-44ce-a7b6-0f60ae141596",
+        "displayName": "App with sites.selected perm"
+      }
+    }]
+  }
+}

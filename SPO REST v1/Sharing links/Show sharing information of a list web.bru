@@ -1,0 +1,21 @@
+meta {
+  name: Show sharing information of a list web
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetSharingInformation?$select=permissionsInformation&$expand=permissionsInformation
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: permissionsInformation
+  $expand: permissionsInformation
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,20 @@
+meta {
+  name: List web columns
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/AvailableFields?$select=Title
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: Title
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Create a field
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('lib1')/fields
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+  ~If-Match: *
+}
+
+body:json {
+  {
+      "__metadata": { "type": "SP.FieldText" },
+      "FieldTypeKind": 2,
+      "Title": "Expense Title"
+  }
+}

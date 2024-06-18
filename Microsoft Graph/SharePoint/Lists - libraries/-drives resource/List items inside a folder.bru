@@ -1,0 +1,22 @@
+meta {
+  name: List items inside a folder
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/root:/folder1/inside folder1:/children?$filter=startswith(name, 'user')
+  body: none
+  auth: none
+}
+
+params:query {
+  $filter: startswith(name, 'user')
+  ~$filter: endswith(name, 'saz')
+  ~$filter: contains(name, '.saz')
+  ~$select: DocIcon
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}

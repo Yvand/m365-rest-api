@@ -1,0 +1,23 @@
+meta {
+  name: List members of a team site
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SP.Directory.DirectorySession/Group('38e98e5c-9472-4ba9-8570-8f5da7294fd8')/Members?$skip=0&$top=20&$inlinecount=allpages&$select=PrincipalName,Id,DisplayName,PictureUrl,UserType,Mail
+  body: none
+  auth: none
+}
+
+params:query {
+  $skip: 0
+  $top: 20
+  $inlinecount: allpages
+  $select: PrincipalName,Id,DisplayName,PictureUrl,UserType,Mail
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}

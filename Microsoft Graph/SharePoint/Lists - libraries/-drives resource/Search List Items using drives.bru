@@ -1,0 +1,40 @@
+meta {
+  name: Search List Items using drives
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/root/search(q='inside')
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$expand: fields
+  ~$select: *
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}
+
+tests {
+  try {
+      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
+      {
+          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
+      }
+      else
+      {
+  //         if (pm.response.status === "Forbidden")
+          {
+              console.log("You need to add user delegated permissions in your application to at least *Sites.Read.All* in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
+          }
+      }
+  }
+  catch (e) {
+      console.log(e);
+  }
+  
+}

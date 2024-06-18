@@ -1,0 +1,20 @@
+meta {
+  name: Show sharing information of an item Copy
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('Documents')/items(16)/GetSharingInformation/pickerSettings
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: permissionsInformation
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

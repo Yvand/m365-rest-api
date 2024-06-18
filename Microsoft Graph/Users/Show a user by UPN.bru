@@ -1,0 +1,19 @@
+meta {
+  name: Show a user by UPN
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/adelev@M365x997769.OnMicrosoft.com?$select=userPrincipalName, id, preferredLanguage, MobilePhone, businessPhones
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: userPrincipalName, id, preferredLanguage, MobilePhone, businessPhones
+}
+
+headers {
+  SdkVersion: postman-graph/v1.0
+}

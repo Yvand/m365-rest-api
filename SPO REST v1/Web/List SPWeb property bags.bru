@@ -1,0 +1,20 @@
+meta {
+  name: List SPWeb property bags
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/AllProperties
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: FollowLinkEnabled
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

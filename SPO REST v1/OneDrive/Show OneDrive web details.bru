@@ -1,0 +1,18 @@
+meta {
+  name: Show OneDrive web details
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}-my.sharepoint.com/personal/admin_m365x997769_onmicrosoft_com/_api/web
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+  Prefer: apiversion=2.1
+  Accept: application/json
+}

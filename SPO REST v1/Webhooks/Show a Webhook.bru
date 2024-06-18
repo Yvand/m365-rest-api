@@ -1,0 +1,16 @@
+meta {
+  name: Show a Webhook
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers')/subscriptions('656c8928-afdd-4ce3-8142-6d89f346bcef')
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}

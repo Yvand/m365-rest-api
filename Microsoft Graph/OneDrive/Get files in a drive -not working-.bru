@@ -1,0 +1,23 @@
+meta {
+  name: Get files in a drive -not working-
+  type: http
+  seq: 13
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/{{UserId}}/drives/{{driveId}}/items?$select=id,name,file,folder,size,lastModifiedDateTime,content.downloadUrl&$filter=contains(name, 'file1.txt')&$expand=name
+  body: none
+  auth: none
+}
+
+params:query {
+  $select: id,name,file,folder,size,lastModifiedDateTime,content.downloadUrl
+  $filter: contains(name, 'file1.txt')
+  $expand: name
+}
+
+headers {
+  Content-Type: application/json
+  SdkVersion: postman-graph/v1.0
+  Prefer: apiversion=2.1
+}

@@ -1,0 +1,20 @@
+meta {
+  name: List lists
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/lists
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: name, webUrl
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json;odata=verbose
+}

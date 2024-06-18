@@ -1,0 +1,11 @@
+meta {
+  name: Delete an extension attribute
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://graph.microsoft.com/v1.0/applications/{{applicationObjectId}}/extensionProperties/37f225fe-f886-4892-823e-4b2600fc712c
+  body: json
+  auth: none
+}

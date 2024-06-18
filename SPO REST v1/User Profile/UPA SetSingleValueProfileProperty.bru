@@ -1,0 +1,25 @@
+meta {
+  name: UPA SetSingleValueProfileProperty
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{TenantPrefix}}.sharepoint.com/_api/SP.UserProfiles.PeopleManager/SetSingleValueProfileProperty
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{AppAccessToken}}
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "accountName": "i:0#.f|membership|azureuser2@yvandoutlook.onmicrosoft.com",
+      "propertyName": "Title",
+      "propertyValue": "TopEngineer"
+  }
+}

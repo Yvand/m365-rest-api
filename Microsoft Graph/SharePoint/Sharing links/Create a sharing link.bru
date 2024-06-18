@@ -1,0 +1,22 @@
+meta {
+  name: Create a sharing link
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/drives/b!M7oFpDmmQkysrGKRAq0dCtgsG8kncTdOvmespJPNSuoboyFEsaCaSZwVvIAnVo-t/items/014NLYKBATDPNQMTKEKZD3RCI5O2OTOTUK/createLink
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "type": "edit",
+    "scope": "organization"
+  }
+}

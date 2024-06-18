@@ -1,0 +1,25 @@
+meta {
+  name: Add a Webhook
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers')/subscriptions
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  {
+      "resource": "https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers')",
+      "notificationUrl": "https://cam-functions-staging.azurewebsites.net/api/processnewcustomerswebhook?code=XEaP5wqBI4vQik3CHk0nTHLSZ6U2YFMfHhzH0UZV/Un0Ub9wIBUquQ==",
+      "expirationDateTime": "2021-10-10T16:17:57+00:00",
+      "clientState": "CAM"
+  }
+}

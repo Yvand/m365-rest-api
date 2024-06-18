@@ -1,0 +1,16 @@
+meta {
+  name: Show a folder with all its list item details
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/Shared Documents/folder1/inside folder1')/ListItemAllFields
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json
+}

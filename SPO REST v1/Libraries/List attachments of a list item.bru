@@ -1,0 +1,20 @@
+meta {
+  name: List attachments of a list item
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Site Pages')/items(1)/AttachmentFiles
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$select: Id, Title
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

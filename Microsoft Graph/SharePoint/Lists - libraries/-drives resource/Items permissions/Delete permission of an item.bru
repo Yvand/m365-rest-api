@@ -1,0 +1,19 @@
+meta {
+  name: Delete permission of an item
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://graph.microsoft.com/v1.0/drives/b!6RTEogSx4EuSCkqJt46o8NNa9d3DJKVArpG5QGE_clsINVdncNL9Q6tQSZaMrouW/items/01ZNUDDPHYY74KIMRIJVH323FI7X5XP7KM/permissions/aTowIy5mfG1lbWJlcnNoaXB8YWRlbGV2QG0zNjV4OTk3NzY5Lm9ubWljcm9zb2Z0LmNvbQ?$whatif
+  body: json
+  auth: none
+}
+
+params:query {
+  $whatif: null
+}
+
+headers {
+  Content-Type: application/json;odata=verbose
+}

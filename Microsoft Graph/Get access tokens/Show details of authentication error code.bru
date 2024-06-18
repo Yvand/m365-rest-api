@@ -1,0 +1,20 @@
+meta {
+  name: Show details of authentication error code
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://login.microsoftonline.com/error
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:multipart-form {
+  code: 530021
+}
