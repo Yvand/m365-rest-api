@@ -19,7 +19,3 @@ headers {
   ContentType: application/json
 }
 
-tests {
-  var jsonData = res.getBody();
-  bru.setEnvVar("requestDigest", jsonData.FormDigestValue);
-}

@@ -21,8 +21,3 @@ body:form-urlencoded {
   resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}-my.sharepoint.com@{{tenantId}}
 }
 
-tests {
-  // Extract access_token from the the and store it in environment variable UserAccessToken
-  var jsonData = res.getBody();
-  bru.setEnvVar("accessToken", jsonData.access_token);
-}

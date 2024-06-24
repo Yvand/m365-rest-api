@@ -23,7 +23,3 @@ body:form-urlencoded {
   client_secret: {{clientSecret}}
 }
 
-tests {
-  var json = JSON.parse(responseBody);
-  postman.setEnvironmentVariable("accessToken", json.access_token);
-}
