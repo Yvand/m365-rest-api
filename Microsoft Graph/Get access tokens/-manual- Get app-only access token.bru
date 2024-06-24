@@ -22,29 +22,3 @@ body:form-urlencoded {
   scope: https://graph.microsoft.com/.default
 }
 
-tests {
-  try {
-      if (bru.getEnvVar("ClientID") === "")
-      {
-          console.log("You need to enter *ClientID* environment variable first.");
-      }
-      if (bru.getEnvVar("ClientSecret") === "")
-      {
-          console.log("You need to enter *ClientSecret* environment variable first.");
-      }
-      if (bru.getEnvVar("TenantID") === "")
-      {
-          console.log("You need to enter *TenantID* environment variable first.");
-      }
-      else
-      {
-          var json = JSON.parse(responseBody);
-          postman.setEnvironmentVariable("OAuth_Token", json.access_token);
-      }
-  }
-  catch (e) {
-      console.log(e);
-  }
-  
-  
-}

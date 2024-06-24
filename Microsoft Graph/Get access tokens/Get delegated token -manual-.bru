@@ -24,37 +24,3 @@ body:form-urlencoded {
   password: {{UserPassword}}
 }
 
-tests {
-  try {
-      if (bru.getEnvVar("ClientID") === "")
-      {
-          console.log("You need to enter *ClientID* environment variable first.");
-      }
-      if (bru.getEnvVar("ClientSecret") === "")
-      {
-          console.log("You need to enter *ClientSecret* environment variable first.");
-      }
-      if (bru.getEnvVar("TenantID") === "")
-      {
-          console.log("You need to enter *TenantID* environment variable first.");
-      }
-      if (bru.getEnvVar("UserName") === "")
-      {
-          console.log("You need to enter *UserName* environment variable first.");
-      }
-      if (bru.getEnvVar("UserPassword") === "")
-      {
-          console.log("You need to enter *UserPassword* environment variable first.");
-      }
-      else
-      {
-          var json = JSON.parse(responseBody);
-          postman.setEnvironmentVariable("OAuth_Token", json.access_token);
-      }
-  }
-  catch (e) {
-      console.log(e);
-  }
-  
-  
-}

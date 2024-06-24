@@ -19,27 +19,3 @@ auth:bearer {
   token: {{UserAccessToken}}
 }
 
-tests {
-  try {
-      if (responseBody.indexOf("InvalidAuthenticationToken") !== -1)
-      {
-          console.log("You need to run *On behalf of a User | Get User Access Token* request first.");
-      }
-      else
-      {
-  //         if (pm.response.status === "Forbidden")
-          {
-              console.log("You need to add user delegated permissions in your application to at least *Group.Read.All* AND *User.Read.All*  in portal.azure.com and then consent as user or Grant admin consent in portal. And re-run *On behalf of a User | Get User Access Token* request to update access token. ");
-          }
-          else
-          {
-              var json = JSON.parse(responseBody);
-              postman.setEnvironmentVariable("TasksId", json.id);
-          }
-      }
-  }
-  catch (e) {
-      console.log(e);
-  }
-  
-}

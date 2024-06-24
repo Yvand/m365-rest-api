@@ -16,15 +16,3 @@ headers {
   Prefer: apiversion=2.1
 }
 
-tests {
-  try {
-      // Extract access_token from the the and store it in environment variable UserAccessToken
-      var jsonData = res.getBody();
-      bru.setEnvVar("driveId", jsonData.value[0].id);
-      console.log("Set the ID of the 1st drive in var {{driveId}}: " + jsonData.value[0].id);
-  }
-  catch (e) {
-      console.log(e);
-  }
-  
-}
