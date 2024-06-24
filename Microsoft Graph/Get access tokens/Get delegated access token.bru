@@ -7,5 +7,24 @@ meta {
 get {
   url: 
   body: none
-  auth: none
+  auth: oauth2
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: https://oauth.pstmn.io/v1/callback
+  authorization_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/authorize
+  access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
+  client_id: {{clientId}}
+  client_secret: {{clientSecret}}
+  scope: offline_access openid user.read Sites.FullControl.All Files.ReadWrite.All
+  state: RANDOMSTRING
+  pkce: false
+}
+
+script:post-response {
+  var token = res.body.access_token;
+  if (token) {
+      bru.setVar('oauth2_token', token)
+  }
 }

