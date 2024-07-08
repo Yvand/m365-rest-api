@@ -1,5 +1,5 @@
 meta {
-  name: Get a users message
+  name: show a users message
   type: http
   seq: 6
 }
@@ -7,15 +7,9 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/me/messages/{{MessageId}}
   body: none
-  auth: bearer
+  auth: inherit
 }
 
 headers {
   Content-Type: application/json
-  SdkVersion: postman-graph/v1.0
-}
-
-auth:bearer {
-  token: {{UserAccessToken}}
-}
-
+  }

@@ -5,14 +5,14 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/users?$select=id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1&$filter=startswith(userPrincipalName, 'xpradeep')
+  url: https://graph.microsoft.com/v1.0/users?$select=id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1&$filter=startswith(userPrincipalName, 'cloud')
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {
   $select: id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1
-  $filter: startswith(userPrincipalName, 'xpradeep')
+  $filter: startswith(userPrincipalName, 'cloud')
   ~$filter: Department eq 'Finance'
 }
 

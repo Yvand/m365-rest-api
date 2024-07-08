@@ -1,0 +1,19 @@
+meta {
+  name: list my messages
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/me/messages?$select=id, sender,subject
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: id, sender,subject
+}
+
+headers {
+  Content-Type: application/json
+  }
