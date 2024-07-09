@@ -7,12 +7,17 @@ meta {
 post {
   url: https://graph.microsoft.com/v1.0/me/sendMail
   body: json
-  auth: inherit
+  auth: bearer
 }
 
 headers {
   Content-Type: application/json
-  }
+  SdkVersion: postman-graph/v1.0
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
 
 body:json {
   {
@@ -40,3 +45,4 @@ body:json {
     "saveToSentItems": "false"
   }
 }
+

@@ -5,9 +5,5 @@
   "ignore": [
     "node_modules",
     ".git"
-  ],
-  "clientCertificates": {
-    "enabled": true,
-    "certs": []
-  }
+  ]
 }

@@ -17,13 +17,9 @@ auth:oauth2 {
   access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
   client_id: {{clientId}}
   client_secret: {{clientSecret}}
-  scope: offline_access openid user.read Sites.FullControl.All Files.ReadWrite.All mail.read
+  scope: offline_access openid user.read Sites.FullControl.All Files.ReadWrite.All
   state: RANDOMSTRING
   pkce: false
-}
-
-vars:post-response {
-  accessToken: res.body.access_token
 }
 
 script:post-response {

@@ -7,9 +7,15 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/me/mailboxSettings
   body: none
-  auth: inherit
+  auth: bearer
 }
 
 headers {
   Content-Type: application/json
-  }
+  SdkVersion: postman-graph/v1.0
+}
+
+auth:bearer {
+  token: {{UserAccessToken}}
+}
+
