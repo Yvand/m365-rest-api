@@ -7,14 +7,11 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/groups/{{TeamId}}/members
   body: none
-  auth: bearer
+auth: inherit
 }
 
 headers {
   SdkVersion: postman-graph/v1.0
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 

@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/me/people?$top=10&$skip=10
   body: none
-  auth: bearer
+auth: inherit
 }
 
 params:query {
@@ -20,7 +20,4 @@ headers {
   SdkVersion: postman-graph/v1.0
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 

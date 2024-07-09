@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/me/calendarview?startdatetime={{Today}}&enddatetime={{NextWeek}}
   body: none
-  auth: bearer
+auth: inherit
 }
 
 params:query {
@@ -20,9 +20,6 @@ headers {
   SdkVersion: postman-graph/v1.0
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 
 script:pre-request {
   postman.setEnvironmentVariable('Today',(new Date()).toISOString());

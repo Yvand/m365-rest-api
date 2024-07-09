@@ -7,7 +7,7 @@ meta {
 patch {
   url: https://graph.microsoft.com/v1.0/groups/{{GroupId}}
   body: json
-  auth: bearer
+auth: inherit
 }
 
 headers {
@@ -15,9 +15,6 @@ headers {
   Content-Type: application/json
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 
 body:json {
   {

@@ -7,7 +7,7 @@ meta {
 patch {
   url: https://graph.microsoft.com/v1.0/planner/plans/{{PlanId}}
   body: json
-  auth: bearer
+auth: inherit
 }
 
 headers {
@@ -16,9 +16,6 @@ headers {
   If-Match: {{PlanETag}}
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 
 body:json {
   {

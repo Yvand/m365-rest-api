@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/teams/{{TeamId}}/channels/{{ChannelId}}/tabs?$expand=teamsApp
   body: none
-  auth: bearer
+auth: inherit
 }
 
 params:query {
@@ -19,7 +19,4 @@ headers {
   Content-Type: application/json
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 

@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/beta/teams/{{TeamId}}/channels/{{ChannelId}}/messages/{{MessageId}}/replies/{{ReplyId}}
   body: none
-  auth: bearer
+auth: inherit
 }
 
 headers {
@@ -15,7 +15,4 @@ headers {
   Content-Type: application/json
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 

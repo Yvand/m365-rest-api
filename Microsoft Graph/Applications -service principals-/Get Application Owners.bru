@@ -7,14 +7,11 @@ meta {
 get {
   url: https://graph.microsoft.com/beta/applications/{{ApplicationId}}/owners
   body: none
-  auth: bearer
+auth: inherit
 }
 
 headers {
   Content-Type: application/json
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 

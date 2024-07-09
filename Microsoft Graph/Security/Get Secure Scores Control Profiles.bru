@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/beta/security/secureScoreControlProfiles?$top=5
   body: none
-  auth: bearer
+auth: inherit
 }
 
 params:query {
@@ -18,7 +18,4 @@ headers {
   SdkVersion: postman-graph/v1.0
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 

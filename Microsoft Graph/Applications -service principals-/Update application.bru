@@ -7,16 +7,13 @@ meta {
 patch {
   url: https://graph.microsoft.com/beta/applications/{{ApplicationId}}
   body: json
-  auth: bearer
+auth: inherit
 }
 
 headers {
   Content-Type: application/json
 }
 
-auth:bearer {
-  token: {{UserAccessToken}}
-}
 
 body:json {
   {
