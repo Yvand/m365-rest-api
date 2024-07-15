@@ -5,11 +5,11 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/users/Aaduser1@yvand.onmicrosoft.com?$select=id, displayName, userPrincipalName, extension_7ade56f812b0472ba923102874ee083a_extensionAttribute1
+  url: https://graph.microsoft.com/v1.0/users/testEntraCPUser_001@{{tenantPrefix}}.onmicrosoft.com?$select=id, displayName, userPrincipalName, extension_8863e9df2c584024af8629e516e06211_extensionAttribute1
   body: json
   auth: none
 }
 
 params:query {
-  $select: id, displayName, userPrincipalName, extension_7ade56f812b0472ba923102874ee083a_extensionAttribute1
+  $select: id, displayName, userPrincipalName, extension_8863e9df2c584024af8629e516e06211_extensionAttribute1
 }
