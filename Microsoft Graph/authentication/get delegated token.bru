@@ -22,6 +22,10 @@ auth:oauth2 {
   pkce: false
 }
 
+vars:post-response {
+  accessToken: res.body.access_token
+}
+
 script:post-response {
   var token = res.body.access_token;
   if (token) {
