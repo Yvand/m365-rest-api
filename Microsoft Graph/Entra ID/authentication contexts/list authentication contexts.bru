@@ -1,0 +1,15 @@
+meta {
+  name: list authentication contexts
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationContextClassReferences
+  body: none
+  auth: none
+}
+
+params:query {
+  ~$filter: id eq 'c1'
+}

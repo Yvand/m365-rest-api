@@ -1,0 +1,20 @@
+meta {
+  name: add authentication context
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationContextClassReferences
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": "c20",
+    "displayName": "add auth context from api",
+    "description": "add auth context from api",
+    "isAvailable": true
+  }
+}
