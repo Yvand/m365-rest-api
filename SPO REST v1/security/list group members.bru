@@ -1,11 +1,11 @@
 meta {
-  name: List site groups members
+  name: list group members
   type: http
-  seq: 5
+  seq: 6
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups/GetById(32)/users?$select=LoginName, Title
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteGroups/GetByName('team Owners')/users?$select=LoginName, Title
   body: none
   auth: inherit
 }
