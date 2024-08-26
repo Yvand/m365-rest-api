@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists/getByTitle('customers_details')/getItems?$select=ID, Title, ContentType/Id,ContentType/Name, FileDirRef, FSObjType
   body: json
-  auth: none
+  auth: inherit
 }
 
 params:query {

@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers_details')/breakroleinheritance(copyRoleAssignments=false, clearSubscopes=true)
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

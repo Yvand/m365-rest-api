@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/classicsub1/_api/web/lists?$filter=Title eq 'TaxonomyHiddenList'
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {
-  $filter: Title eq 'TaxonomyHiddenList'
+  ~$filter: Title eq 'TaxonomyHiddenList'
   ~$top: 1
   ~$select: Id, Title, ItemCount
 }

@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/wfsvc/af14f79448d84ecbabfba750569d0231')/Files('workflow.xaml')/$value
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

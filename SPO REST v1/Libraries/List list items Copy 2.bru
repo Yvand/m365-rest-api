@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Site Pages')/items?$select=Id, Title, ServerRedirectedEmbedUri, CanvasContent1
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

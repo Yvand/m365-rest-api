@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/lists/listPostman2/postmanFolder')/ListItemAllFields/roleassignments/addroleassignment(principalid=4, roledefid=1073741826)
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

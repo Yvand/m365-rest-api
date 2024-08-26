@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/wfsvc/af14f79448d84ecbabfba750569d0231/workflow.xaml')/Versions?$select=ID, Created, Url, VersionLabel
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

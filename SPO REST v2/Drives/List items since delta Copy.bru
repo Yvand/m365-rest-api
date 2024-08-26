@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.1/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/drives/{{driveId}}/root/delta?$select=name, id, lastModifiedDateTime, file
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

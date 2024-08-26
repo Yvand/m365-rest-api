@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items(1)/File
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/lists/Documents/items/1/driveItem/thumbnails
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

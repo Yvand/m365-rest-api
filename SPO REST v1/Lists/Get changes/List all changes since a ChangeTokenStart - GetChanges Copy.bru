@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists(guid'5fb1cf9d-3c51-478b-a69a-4bf1badf73bf')/RootFolder/GetChanges?$expand=RelativeTime
   body: json
-  auth: none
+  auth: inherit
 }
 
 params:query {

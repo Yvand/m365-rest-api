@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/drives?$select=id, name
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

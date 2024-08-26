@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/RoleAssignments?$select=PrincipalId,RoleDefinitionBindings&$expand=RoleDefinitionBindings
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

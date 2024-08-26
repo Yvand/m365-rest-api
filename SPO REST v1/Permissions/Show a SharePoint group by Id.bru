@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups/GetById(5)?$select=Id, Title, LoginName
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

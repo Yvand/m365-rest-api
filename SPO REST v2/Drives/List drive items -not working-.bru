@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/v2.0/sites('{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}')/drives/{{driveId}}/items?$expand=analytics($expand=allTime)&$filter=startswith(title, 'test')
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

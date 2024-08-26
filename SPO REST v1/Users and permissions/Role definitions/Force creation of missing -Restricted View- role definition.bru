@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/Lists/GetByTitle('Documents')/GetItemById(1)/GetSharingInformation?$expand=pickerSettings,permissionsInformation,sharingLinkTemplates,addressBarLinkSettings
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

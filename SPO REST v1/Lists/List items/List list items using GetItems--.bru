@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('Documents')/GetItems(query=@v1)?@v1={"ViewXml":"<View><Query></Query><ViewFields><FieldRef Name='Id' /></ViewFields></View>"}
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('User Information List')/items?$filter=ID eq 11 or ID eq 10 or ID eq 14&$select=ID, Title, ContentType/Name, Name&$expand=ContentType
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

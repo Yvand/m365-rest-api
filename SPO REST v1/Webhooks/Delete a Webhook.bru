@@ -7,7 +7,7 @@ meta {
 delete {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers')/subscriptions('710fc875-18ed-43a7-9f53-5c3c06a24b6e')
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

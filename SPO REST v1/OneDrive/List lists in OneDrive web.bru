@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}-my.sharepoint.com/personal/admin_{{tenantPrefix}}_onmicrosoft_com/_api/web/lists?$select=Title, BaseTemplate&$filter=BaseTemplate eq 700
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

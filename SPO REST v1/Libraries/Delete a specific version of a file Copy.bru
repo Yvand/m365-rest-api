@@ -7,7 +7,7 @@ meta {
 delete {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/Shared%20Documents/testVersions.txt')/Versions(1024)
   body: none
-  auth: none
+  auth: inherit
 }
 
 headers {

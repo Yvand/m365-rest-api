@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('Customers')/items?$select=CAMTPID&$top=5000
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFileByServerRelativeUrl('{{siteRelativePath}}/Shared Documents/DISNEY100_1920x1080HD resized.jpg')/ListItemAllFields/ShareLink
   body: json
-  auth: none
+  auth: inherit
 }
 
 headers {

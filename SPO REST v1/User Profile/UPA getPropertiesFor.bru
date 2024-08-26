@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SP.UserProfiles.PeopleManager/getPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|adelev@{{tenantPrefix}}.onmicrosoft.com'
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

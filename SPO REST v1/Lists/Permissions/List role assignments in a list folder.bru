@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/lists/list1/folderPermsUnique')/ListItemAllFields/roleassignments
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

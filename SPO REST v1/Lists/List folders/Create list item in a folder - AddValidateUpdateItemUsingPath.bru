@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('customers_details')/AddValidateUpdateItemUsingPath
   body: json
-  auth: none
+  auth: inherit
 }
 
 headers {

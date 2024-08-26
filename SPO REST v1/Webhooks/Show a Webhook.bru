@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('customers')/subscriptions('656c8928-afdd-4ce3-8142-6d89f346bcef')
   body: json
-  auth: none
+  auth: inherit
 }
 
 headers {

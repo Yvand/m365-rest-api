@@ -7,7 +7,7 @@ meta {
 get {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups/?$select=Id, Title, LoginName&$filter=Title eq 'CSD CAM automation tool Members'
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

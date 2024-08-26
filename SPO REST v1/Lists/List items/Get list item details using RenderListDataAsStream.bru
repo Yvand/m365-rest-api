@@ -7,7 +7,7 @@ meta {
 post {
   url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetList(@listUrl)/RenderListDataAsStream?FilterField1=ID&FilterValue1=1&SortField=ID&SortDir=Desc&@listUrl='{{siteRelativePath}}/Lists/list1'
   body: json
-  auth: none
+  auth: inherit
 }
 
 params:query {
