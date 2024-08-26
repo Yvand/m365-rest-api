@@ -1,0 +1,15 @@
+meta {
+  name: show user
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteUsers/GetByEmail('admin@{{tenantPrefix}}.onmicrosoft.com')
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~$select: Id
+}

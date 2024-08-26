@@ -1,0 +1,21 @@
+meta {
+  name: list role assignments in folder
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/docs/folder B')/ListItemAllFields/roleassignments
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~$select: PrincipalId
+  ~$filter: PrincipalId eq 12
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json;odata=verbose
+}

@@ -1,0 +1,20 @@
+meta {
+  name: show if folder has unique permissions
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/GetFolderByServerRelativeUrl('{{siteRelativePath}}/docs/folder A/Lorem ipsum.docx')/ListItemAllFields?$select=Id, Title, HasUniqueRoleAssignments
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: Id, Title, HasUniqueRoleAssignments
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json;odata=verbose
+}
