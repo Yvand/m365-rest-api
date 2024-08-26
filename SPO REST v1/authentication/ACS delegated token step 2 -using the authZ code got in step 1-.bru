@@ -10,10 +10,6 @@ post {
   auth: none
 }
 
-headers {
-  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Postman/7.36.1 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36
-}
-
 body:form-urlencoded {
   resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}.sharepoint.com@{{tenantId}}
   redirect_uri: https://app.getpostman.com/oauth2/callback
@@ -22,4 +18,3 @@ body:form-urlencoded {
   client_id: {{clientId}}@{{tenantId}}
   client_secret: {{clientSecret}}
 }
-
