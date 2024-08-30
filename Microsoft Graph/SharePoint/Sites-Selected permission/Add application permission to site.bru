@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com::{{siteRelativePath}}:/permissions
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/permissions
   body: json
   auth: none
 }
@@ -24,6 +24,8 @@ body:json {
         }
       }
     ],
-    "roles": [ "fullcontrol" ]
+    "roles": [
+      "fullcontrol"
+    ]
   }
 }

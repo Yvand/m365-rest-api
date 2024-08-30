@@ -1,0 +1,30 @@
+meta {
+  name: grant user permission to a folder
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SP.Web.ShareObject?$expand=UsersWithAccessRequests,GroupsSharedWith
+  body: json
+  auth: inherit
+}
+
+params:query {
+  $expand: UsersWithAccessRequests,GroupsSharedWith
+}
+
+body:json {
+  {
+    "url": "https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/docs/folder A",
+    "peoplePickerInput": "[{ \"Key\":\"i:0#.f|membership|clouduser1@{{tenantPrefix}}.onmicrosoft.com\" }]",
+    "groupId": "0",
+    "roleValue": "role: 1073741830",
+    "useSimplifiedRoles": false,
+    "propagateAcl": true,
+    "sendEmail": true,
+    "emailBody": "Example body",
+    "emailSubject": "Example subject",
+    "includeAnonymousLinkInEmail": false
+  }
+}
