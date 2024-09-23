@@ -1,0 +1,20 @@
+meta {
+  name: show site
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_api/SPO.Tenant/sites('3dd3e431-9df6-469f-9f1d-c58451688b5a')
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~$select: Url, ConditionalAccessPolicy, AuthenticationContextName
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

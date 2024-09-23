@@ -5,17 +5,16 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/drives
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/drives?$select=id, name, weburl
   body: none
   auth: none
 }
 
 params:query {
+  $select: id, name, weburl
   ~whatif: null
 }
 
 headers {
   Content-Type: application/json
-
 }
-

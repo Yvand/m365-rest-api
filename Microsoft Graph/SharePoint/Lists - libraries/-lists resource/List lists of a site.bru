@@ -5,16 +5,16 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists?$filter=DisplayName eq 'User Information List'
   body: none
   auth: none
 }
 
 params:query {
+  $filter: DisplayName eq 'User Information List'
   ~whatif: null
 }
 
 headers {
   Content-Type: application/json
-
 }

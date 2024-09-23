@@ -1,0 +1,20 @@
+meta {
+  name: show policy for unmanaged devices
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_api/SPOInternalUseOnly.Tenant?$select=ConditionalAccessPolicy
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: ConditionalAccessPolicy
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
