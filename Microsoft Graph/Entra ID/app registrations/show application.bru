@@ -1,0 +1,19 @@
+meta {
+  name: show application
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://graph.microsoft.com/beta/applications?$filer=displayName eq 'SharePoint Online Client Extensibility Web Application Principal'
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $filer: displayName eq 'SharePoint Online Client Extensibility Web Application Principal'
+}
+
+headers {
+  Content-Type: application/json
+}
