@@ -5,15 +5,16 @@ meta {
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web?$select=Title, Description, Language, AllProperties/vti_x005f_defaultlanguage, IsMultilingual
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web?$select=Title, Description, Language, AllProperties/vti_x005f_defaultlanguage, IsMultilingual&$expand=AllProperties, Lists,ParentWeb,RegionalSettings/TimeZone,WebInfos
   body: none
   auth: inherit
 }
 
 params:query {
   $select: Title, Description, Language, AllProperties/vti_x005f_defaultlanguage, IsMultilingual
-  ~$expand: AllProperties, Lists,ParentWeb,RegionalSettings/TimeZone,WebInfos
+  $expand: AllProperties, Lists,ParentWeb,RegionalSettings/TimeZone,WebInfos
   ~$expand: Lists,ParentWeb,RegionalSettings/TimeZone,WebInfos,RoleAssignments/Member,RoleAssignments/RoleDefinitionBindings
+  ~$select: TenantTagPolicyEnabled
 }
 
 headers {

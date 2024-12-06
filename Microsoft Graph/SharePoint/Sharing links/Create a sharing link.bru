@@ -1,11 +1,11 @@
 meta {
   name: Create a sharing link
   type: http
-  seq: 5
+  seq: 7
 }
 
 post {
-  url: https://graph.microsoft.com/v1.0/drives/b!M7oFpDmmQkysrGKRAq0dCtgsG8kncTdOvmespJPNSuoboyFEsaCaSZwVvIAnVo-t/items/014NLYKBATDPNQMTKEKZD3RCI5O2OTOTUK/createLink
+  url: https://graph.microsoft.com/v1.0/drives/b!oO-BXfj5fkuh94M5Jms7_9zbjMdjhT5JtDJz8D5iWNaR7OtYz91UT5RLbXPBtVwD/items/01F6E7LOSFZ2L5O7QEOFCKNFONVMY5U3A4/createLink
   body: json
   auth: none
 }
@@ -16,7 +16,11 @@ headers {
 
 body:json {
   {
-    "type": "edit",
-    "scope": "organization"
+    "type": "view",
+    "scope": "anonymous"
   }
+}
+
+docs {
+  https://learn.microsoft.com/en-us/graph/api/driveitem-createlink?view=graph-rest-1.0&tabs=http
 }

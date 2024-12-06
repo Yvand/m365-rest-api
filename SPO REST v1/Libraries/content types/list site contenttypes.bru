@@ -1,0 +1,20 @@
+meta {
+  name: list site contenttypes
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/ContentTypes?$select=Name, Group, Id, Hidden
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: Name, Group, Id, Hidden
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}

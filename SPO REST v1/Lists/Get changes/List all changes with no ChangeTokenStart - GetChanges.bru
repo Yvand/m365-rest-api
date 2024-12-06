@@ -5,14 +5,15 @@ meta {
 }
 
 post {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists('4dd447e3-f243-40ba-a132-a06ce04fcb82')/RootFolder/GetChanges?$expand=RelativeTime
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('rerlist')/RootFolder/GetChanges?$expand=RelativeTime&$orderby=Time desc&$top=2
   body: json
   auth: inherit
 }
 
 params:query {
   $expand: RelativeTime
-  ~$top: 100
+  $orderby: Time desc
+  $top: 2
 }
 
 headers {

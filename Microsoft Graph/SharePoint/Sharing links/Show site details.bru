@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}-my.sharepoint.com:{{siteRelativePath}}
+  url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}
   body: none
   auth: none
 }
@@ -16,5 +16,4 @@ params:query {
 
 headers {
   Content-Type: application/json
-
 }

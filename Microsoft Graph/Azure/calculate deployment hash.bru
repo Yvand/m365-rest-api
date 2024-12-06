@@ -1,0 +1,19 @@
+meta {
+  name: calculate deployment hash
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://management.azure.com/providers/Microsoft.Resources/calculateTemplateHash?api-version=2021-04-01
+  body: none
+  auth: none
+}
+
+params:query {
+  api-version: 2021-04-01
+}
+
+docs {
+  https://learn.microsoft.com/en-us/rest/api/resources/deployments/calculate-template-hash?view=rest-resources-2021-04-01&tabs=HTTP
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Show item
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/drives/b!oO-BXfj5fkuh94M5Jms7_9zbjMdjhT5JtDJz8D5iWNaR7OtYz91UT5RLbXPBtVwD/items/01F6E7LOSFZ2L5O7QEOFCKNFONVMY5U3A4?select=id,@microsoft.graph.downloadUrl
+  body: none
+  auth: none
+}
+
+params:query {
+  select: id,@microsoft.graph.downloadUrl
+}
+
+headers {
+  Content-Type: application/json
+}
