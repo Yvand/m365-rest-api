@@ -1,0 +1,15 @@
+meta {
+  name: list jits
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Security/jitNetworkAccessPolicies?api-version=2020-01-01
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 2020-01-01
+}

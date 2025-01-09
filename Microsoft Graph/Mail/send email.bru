@@ -1,0 +1,42 @@
+meta {
+  name: send email
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/me/sendMail
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "message": {
+      "subject": "Meet for lunch?",
+      "body": {
+        "contentType": "Text",
+        "content": "The new cafeteria is open."
+      },
+      "toRecipients": [
+        {
+          "emailAddress": {
+            "address": "clouduser1@{{tenantPrefix}}.onmicrosoft.com"
+          }
+        }
+      ],
+      "ccRecipients": [
+        {
+          "emailAddress": {
+            "address": "clouduser2@{{tenantPrefix}}.onmicrosoft.com"
+          }
+        }
+      ]
+    },
+    "saveToSentItems": "true"
+  }
+}

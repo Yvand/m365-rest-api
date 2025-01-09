@@ -1,0 +1,16 @@
+meta {
+  name: List users in web
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/Web/siteusers
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json;odata=nometadata
+}

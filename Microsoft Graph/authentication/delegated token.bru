@@ -1,7 +1,7 @@
 meta {
-  name: get app-only token
+  name: delegated token
   type: http
-  seq: 2
+  seq: 1
 }
 
 get {
@@ -11,11 +11,15 @@ get {
 }
 
 auth:oauth2 {
-  grant_type: client_credentials
+  grant_type: authorization_code
+  callback_url: https://localhost
+  authorization_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/authorize
   access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
   client_id: {{clientId}}
   client_secret: {{clientSecret}}
-  scope: https://graph.microsoft.com/.default
+  scope: offline_access openid user.read Sites.FullControl.All Files.ReadWrite.All Mail.Send
+  state: RANDOMSTRING
+  pkce: false
 }
 
 vars:post-response {

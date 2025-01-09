@@ -1,0 +1,42 @@
+meta {
+  name: list my emails
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/me/messages
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "message": {
+      "subject": "Meet for lunch?",
+      "body": {
+        "contentType": "Text",
+        "content": "The new cafeteria is open."
+      },
+      "toRecipients": [
+        {
+          "emailAddress": {
+            "address": "frannis@contoso.com"
+          }
+        }
+      ],
+      "ccRecipients": [
+        {
+          "emailAddress": {
+            "address": "danas@contoso.com"
+          }
+        }
+      ]
+    },
+    "saveToSentItems": "false"
+  }
+}
