@@ -1,0 +1,21 @@
+meta {
+  name: list api permissions of application
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/oauth2PermissionGrants?$filter=clientId%20eq%20%27c6075187-72a3-4daa-afba-2916ec4cbc08%27%20and%20consentType%20eq%20%27AllPrincipals%27&$top=999
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $filter: clientId eq 'c6075187-72a3-4daa-afba-2916ec4cbc08' and consentType eq 'AllPrincipals'
+  $top: 999
+  ~$select: displayName, requiredResourceAccess
+}
+
+headers {
+  Content-Type: application/json
+}

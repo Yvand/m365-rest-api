@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups(167)/users
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups(5)/users?$select=LoginName
   body: json
   auth: inherit
+}
+
+params:query {
+  $select: LoginName
 }
 
 headers {

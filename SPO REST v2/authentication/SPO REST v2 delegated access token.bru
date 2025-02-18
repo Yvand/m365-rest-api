@@ -12,7 +12,7 @@ get {
 
 auth:oauth2 {
   grant_type: authorization_code
-  callback_url: 
+  callback_url: https://localhost
   authorization_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/authorize
   access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
   client_id: {{clientId}}
@@ -20,4 +20,8 @@ auth:oauth2 {
   scope: https://{{tenantPrefix}}.sharepoint.com/AllSites.FullControl https://{{tenantPrefix}}.sharepoint.com/User.ReadWrite.All
   state: RANDOMSTRING
   pkce: false
+}
+
+vars:post-response {
+  accessToken: res.body.access_token
 }
