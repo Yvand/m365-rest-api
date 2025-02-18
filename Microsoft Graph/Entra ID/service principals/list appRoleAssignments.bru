@@ -1,0 +1,15 @@
+meta {
+  name: list appRoleAssignments
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0//servicePrincipals(appId='b966ad07-8da7-4113-98a1-9d4d61d45839')/appRoleAssignments
+  body: none
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
