@@ -1,0 +1,25 @@
+meta {
+  name: groupify site
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/GroupSiteManager/CreateGroupForSite
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}
+
+body:json {
+  {
+    "displayName": "classicTeam2",
+    "alias": "classicTeam2",
+    "isPublic": false,
+    "optionalParams": {}
+  }
+}
