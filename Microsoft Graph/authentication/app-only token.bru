@@ -18,13 +18,6 @@ auth:oauth2 {
   scope: https://graph.microsoft.com/.default
 }
 
-vars:post-response {
-  accessToken: res.body.access_token
-}
 
-script:post-response {
-  var token = res.body.access_token;
-  if (token) {
-      bru.setVar('oauth2_token', token)
-  }
+
 }

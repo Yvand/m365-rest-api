@@ -1,11 +1,11 @@
 meta {
-  name: Delete a user
+  name: me
   type: http
-  seq: 4
+  seq: 2
 }
 
-delete {
-  url: https://graph.microsoft.com/v1.0/users/testuser1@m365x997769.onmicrosoft.com
+get {
+  url: https://graph.microsoft.com/v1.0/me
   body: none
   auth: inherit
 }

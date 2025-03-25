@@ -1,13 +1,9 @@
 meta {
-  name: delegated token
-  type: http
-  seq: 1
+  name: delegated token scope 2
 }
 
-get {
-  url: 
-  body: none
-  auth: oauth2
+auth {
+  mode: oauth2
 }
 
 auth:oauth2 {
@@ -27,15 +23,4 @@ auth:oauth2 {
   token_header_prefix: Bearer
   auto_fetch_token: true
   auto_refresh_token: true
-}
-
-vars:post-response {
-  accessToken: res.body.access_token
-}
-
-script:post-response {
-  var token = res.body.access_token;
-  if (token) {
-      bru.setVar('oauth2_token', token)
-  }
 }
