@@ -1,0 +1,20 @@
+meta {
+  name: list virtualMachines
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Compute/virtualMachines?api-version=2024-11-01
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 2024-11-01
+  ~$select: name, location, id
+}
+
+docs {
+  https://learn.microsoft.com/en-us/rest/api/resources/resource-groups/list?view=rest-resources-2021-04-01&viewFallbackFrom=rest-resources-2022-12-01
+}

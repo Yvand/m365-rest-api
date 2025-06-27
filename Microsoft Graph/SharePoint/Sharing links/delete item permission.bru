@@ -1,0 +1,15 @@
+meta {
+  name: delete item permission
+  type: http
+  seq: 10
+}
+
+delete {
+  url: https://graph.microsoft.com/v1.0/drives/{{driveId}}/items/{{itemId}}/permissions/f453f874-117d-46fe-83c6-a93a8dbee891
+  body: none
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
