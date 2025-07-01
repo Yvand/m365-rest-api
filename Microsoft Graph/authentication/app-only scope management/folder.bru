@@ -1,13 +1,9 @@
 meta {
   name: app-only scope management
-  type: http
-  seq: 4
 }
 
-get {
-  url: 
-  body: none
-  auth: oauth2
+auth {
+  mode: oauth2
 }
 
 auth:oauth2 {
@@ -16,15 +12,4 @@ auth:oauth2 {
   client_id: {{clientId}}
   client_secret: {{clientSecret}}
   scope: https://management.microsoft.com/.default
-}
-
-vars:post-response {
-  accessToken: res.body.access_token
-}
-
-script:post-response {
-  var token = res.body.access_token;
-  if (token) {
-      bru.setVar('oauth2_token', token)
-  }
 }

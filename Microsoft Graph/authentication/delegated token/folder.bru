@@ -1,13 +1,9 @@
 meta {
   name: delegated token
-  type: http
-  seq: 1
 }
 
-get {
-  url: 
-  body: none
-  auth: oauth2
+auth {
+  mode: oauth2
 }
 
 auth:oauth2 {
@@ -15,20 +11,16 @@ auth:oauth2 {
   callback_url: https://localhost
   authorization_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/authorize
   access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
+  refresh_token_url: 
   client_id: {{clientId}}
   client_secret: {{clientSecret}}
   scope: offline_access openid user.read Sites.FullControl.All Files.ReadWrite.All Mail.Send
   state: RANDOMSTRING
   pkce: false
-}
-
-vars:post-response {
-  accessToken: res.body.access_token
-}
-
-script:post-response {
-  var token = res.body.access_token;
-  if (token) {
-      bru.setVar('oauth2_token', token)
-  }
+  credentials_placement: body
+  credentials_id: credentials
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: true
+  auto_refresh_token: true
 }

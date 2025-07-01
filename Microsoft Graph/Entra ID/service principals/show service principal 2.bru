@@ -1,0 +1,19 @@
+meta {
+  name: show service principal 2
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0//servicePrincipals(appId='25f91090-05df-4d95-868f-d15672680a91')?$select=id,appId,displayName,appRoles,oauth2PermissionScopes,resourceSpecificApplicationPermissions, preferredSingleSignOnMode
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: id,appId,displayName,appRoles,oauth2PermissionScopes,resourceSpecificApplicationPermissions, preferredSingleSignOnMode
+}
+
+headers {
+  Content-Type: application/json
+}

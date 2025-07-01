@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0//servicePrincipals(appId='b966ad07-8da7-4113-98a1-9d4d61d45839')?$select=id,appId,displayName,appRoles,oauth2PermissionScopes,resourceSpecificApplicationPermissions
+  url: https://graph.microsoft.com/v1.0//servicePrincipals(appId='b966ad07-8da7-4113-98a1-9d4d61d45839')?$select=id,appId,displayName,appRoles,oauth2PermissionScopes,resourceSpecificApplicationPermissions, preferredSingleSignOnMode
   body: none
   auth: inherit
 }
 
 params:query {
-  $select: id,appId,displayName,appRoles,oauth2PermissionScopes,resourceSpecificApplicationPermissions
+  $select: id,appId,displayName,appRoles,oauth2PermissionScopes,resourceSpecificApplicationPermissions, preferredSingleSignOnMode
 }
 
 headers {

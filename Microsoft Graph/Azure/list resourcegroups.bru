@@ -1,0 +1,22 @@
+meta {
+  name: list resourcegroups
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://management.azure.com/subscriptions/{{subscriptionId}}//resourcegroups?api-version=2025-04-01&$filter=tagName eq 'Automation' and tagValue eq 'vm-disk'
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 2025-04-01
+  $filter: tagName eq 'Automation' and tagValue eq 'vm-disk'
+  ~$filter: startsWith(tagname, 'Automation')
+  ~$select: name, location
+}
+
+docs {
+  https://learn.microsoft.com/en-us/rest/api/resources/resource-groups/list?view=rest-resources-2021-04-01&viewFallbackFrom=rest-resources-2022-12-01
+}

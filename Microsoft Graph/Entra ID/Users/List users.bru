@@ -1,13 +1,13 @@
 meta {
   name: List users
   type: http
-  seq: 4
+  seq: 1
 }
 
 get {
   url: https://graph.microsoft.com/v1.0/users?$select=id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1&$filter=startswith(userPrincipalName, 'xpradeep')
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

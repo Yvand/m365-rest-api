@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:{{siteRelativePath}}:/lists('list1')/items?$expand=fields&$filter=fields/Title eq 'manual'
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

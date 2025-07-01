@@ -7,7 +7,7 @@ meta {
 get {
   url: https://graph.microsoft.com/v1.0/sites/{{tenantPrefix}}.sharepoint.com:/sites/Contoso:/lists('Documents')/items?$filter=fields/FileLeafRef eq 'inside folder1' and fields/ContentType eq 'Folder'&$expand=fields
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {

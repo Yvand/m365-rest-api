@@ -1,0 +1,25 @@
+meta {
+  name: revoke item permission (revokeGrants)
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://graph.microsoft.com/beta/drives/{{driveId}}/items/{{itemId}}/permissions/d03e758d-7a49-4da5-874e-2a7c8a0c830c/revokeGrants
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "grantees": [
+      {
+        "email": "clouduser1@{{tenantPrefix}}.onmicrosoft.com"
+      }
+    ]
+  }
+}
