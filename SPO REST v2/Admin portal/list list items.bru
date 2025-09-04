@@ -1,0 +1,16 @@
+meta {
+  name: list list items
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com/_api/v2.0/sites('{{tenantPrefix}}-admin.sharepoint.com')/lists('d0b70533-8e4d-4a98-8c8c-44f63b755351')/items
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

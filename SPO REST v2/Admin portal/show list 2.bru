@@ -1,0 +1,16 @@
+meta {
+  name: show list 2
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{tenantPrefix}}-admin.sharepoint.com/_api/web/lists('d0b70533-8e4d-4a98-8c8c-44f63b755351')/ItemCount
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

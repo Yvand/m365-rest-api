@@ -1,0 +1,28 @@
+meta {
+  name: authentication.asmx 2
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_vti_bin/Authentication.asmx
+  body: xml
+  auth: none
+}
+
+headers {
+  SOAPAction: http://schemas.microsoft.com/sharepoint/soap/Mode
+  Content-Type: text/xml; charset=utf-8
+}
+
+body:xml {
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+      <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Mode xmlns="http://schemas.microsoft.com/sharepoint/soap/"/>
+      </s:Body>
+  </s:Envelope>
+}
+
+settings {
+  encodeUrl: true
+}
