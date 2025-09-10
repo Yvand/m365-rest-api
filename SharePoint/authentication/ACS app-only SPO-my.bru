@@ -1,0 +1,34 @@
+meta {
+  name: ACS app-only SPO-my
+  type: http
+  seq: 8
+}
+
+get {
+  url: 
+  body: none
+  auth: oauth2
+}
+
+auth:oauth2 {
+  grant_type: client_credentials
+  access_token_url: https://accounts.accesscontrol.windows.net/{{tenantId}}/tokens/OAuth/2
+  refresh_token_url: 
+  client_id: {{clientId}}@{{tenantId}}
+  client_secret: {{clientSecret}}
+  scope: 
+  credentials_placement: body
+  credentials_id: credentials
+  token_placement: header
+  token_header_prefix: 
+  auto_fetch_token: true
+  auto_refresh_token: false
+}
+
+auth:oauth2:additional_params:access_token_req:body {
+  resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}-my.sharepoint.com@{{tenantId}}
+}
+
+vars:post-response {
+  accessToken: res.body.access_token
+}
