@@ -1,7 +1,7 @@
 meta {
-  name: ACS app-only SPO
+  name: Entra id - apponly
   type: http
-  seq: 5
+  seq: 1
 }
 
 get {
@@ -12,11 +12,11 @@ get {
 
 auth:oauth2 {
   grant_type: client_credentials
-  access_token_url: https://accounts.accesscontrol.windows.net/{{tenantId}}/tokens/OAuth/2
+  access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
   refresh_token_url: 
-  client_id: {{clientId}}@{{tenantId}}
+  client_id: {{clientId}}
   client_secret: {{clientSecret}}
-  scope: 
+  scope: https://{{tenantPrefix}}.sharepoint.com/.default
   credentials_placement: body
   credentials_id: credentials
   token_placement: header
@@ -25,10 +25,12 @@ auth:oauth2 {
   auto_refresh_token: false
 }
 
-auth:oauth2:additional_params:access_token_req:body {
-  resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}.sharepoint.com@{{tenantId}}
-}
-
 vars:post-response {
   accessToken: res.body.access_token
+}
+
+script:post-response {
+  bru.setEnvVar("accessToken", res.body.access_token);
+  bru.setGlobalEnvVar("accessToken", res.body.access_token);
+  console.log("yoyo")
 }
