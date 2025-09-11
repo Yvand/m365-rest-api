@@ -1,11 +1,11 @@
 meta {
-  name: Get current user
+  name: show current user
   type: http
-  seq: 1
+  seq: 2
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/currentuser?$expand=UserId
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/CurrentUser?$expand=UserId
   body: none
   auth: inherit
 }
