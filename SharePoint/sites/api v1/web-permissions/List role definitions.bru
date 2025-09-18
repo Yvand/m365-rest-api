@@ -1,0 +1,20 @@
+meta {
+  name: List role definitions
+  type: http
+  seq: 15
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/roledefinitions?$select=Id, Name, Description
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: Id, Name, Description
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

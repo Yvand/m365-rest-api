@@ -1,0 +1,20 @@
+meta {
+  name: EnsureUser
+  type: http
+  seq: 20
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/ensureUser('i:0%23.f|membership|adelev@{{tenantPrefix}}.onmicrosoft.com')
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~$select: Id, Name
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}

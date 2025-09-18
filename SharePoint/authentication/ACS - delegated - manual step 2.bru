@@ -1,0 +1,20 @@
+meta {
+  name: ACS - delegated - manual step 2
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://accounts.accesscontrol.windows.net/{{tenantId}}/tokens/OAuth/2
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  resource: 00000003-0000-0ff1-ce00-000000000000/{{tenantPrefix}}.sharepoint.com@{{tenantId}}
+  redirect_uri: https://app.getpostman.com/oauth2/callback
+  grant_type: authorization_code
+  code: PAQABAAEAAAD--DLA3VO7QrddgJg7WevruY2Utp3yCcyKvQUuCBuE8iT786-vxqcMGFQkQmRIQcudVQTHK3A5DCNkRuHhEZ5L-LBMan4GxcxuDNj5FYiEK2GN7COrBzDwL0q-Wh4XY1io12C8RhwmSkm169TOiG-9vEpc7ZI9hQOrOMYEAKoIQNyCyQsBMTqlN1Y9mNUrqqYSEunSNXdJpr2oaDgoH2WT7ZRgX_lgCCY5H8cNBJVUJq86Bs3bduYOXUyhFri-MQZRCOFH3LQNavJZi1jRBHFDDtP8ae2SJnd2ZhrFahRm1Qg_vLerZDVGHEMlEM0MxrfjjsrMEeVjozcqRQ1n7ZJrIDuRZjSUbyYjd5laHe-Q_CAA
+  client_id: {{clientId}}@{{tenantId}}
+  client_secret: {{clientSecret}}
+}

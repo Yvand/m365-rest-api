@@ -1,0 +1,23 @@
+meta {
+  name: ensure user exists in user information list
+  type: http
+  seq: 16
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/SiteUsers
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  Content-Type: application/json;odata=verbose
+}
+
+body:json {
+  {
+      "__metadata": { "type": "SP.User" },
+      "LoginName": "i:0#.f|membership|ChristieC@M365x997769.OnMicrosoft.com"
+  }
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Delete a SharePoint group by Title-Login
+  type: http
+  seq: 23
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/sitegroups/removeByLoginName('Customer 640443 vTeam')
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}

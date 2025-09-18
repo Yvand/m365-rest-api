@@ -1,0 +1,22 @@
+meta {
+  name: List SharePoint groups
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/Web/SiteGroups?$select=Id, LoginName, Title
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $select: Id, LoginName, Title
+  ~$filter: LoginName eq 'POD APAC %26 GCR - Contributors'
+  ~$filter: LoginName eq 'POD CEE - Contributors'
+}
+
+headers {
+  Accept: application/json;odata=verbose
+  ContentType: application/json;odata=verbose
+}
