@@ -1,0 +1,30 @@
+meta {
+  name: create site
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SPSiteManager/Create
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}
+
+body:json {
+  {
+    "request": {
+      "Title": "Non-group associated Team Site 1",
+      "Description": "Non-group associated Team Site",
+      "Url": "https://{{tenantPrefix}}.sharepoint.com/sites/ntgteam1",
+      "Lcid": 1033,
+      "ShareByEmailEnabled": false,
+      "WebTemplate": "STS#3",
+      "Owner": "admin@{{tenantPrefix}}.onmicrosoft.com"
+    }
+  }
+}

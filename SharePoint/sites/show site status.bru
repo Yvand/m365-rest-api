@@ -1,0 +1,21 @@
+meta {
+  name: show site status
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/SPSiteManager/status?url='https://{{tenantPrefix}}.sharepoint.com/sites/team'
+  body: json
+  auth: inherit
+}
+
+params:query {
+  url: 'https://{{tenantPrefix}}.sharepoint.com/sites/team'
+  ~url: 'https://{{tenantPrefix}}.sharepoint.com/sites/ntgteam1'
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json;odata=verbose
+}
