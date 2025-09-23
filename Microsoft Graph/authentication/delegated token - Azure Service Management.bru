@@ -1,7 +1,7 @@
 meta {
   name: delegated token - Azure Service Management
   type: http
-  seq: 1
+  seq: 2
 }
 
 get {
@@ -17,9 +17,9 @@ auth:oauth2 {
   access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
   refresh_token_url: 
   client_id: {{clientId}}
-  client_secret: 
+  client_secret: {{clientSecret}}
   scope: https://management.azure.com/.default
-  state:  
+  state: 
   pkce: false
   credentials_placement: body
   credentials_id: credentials

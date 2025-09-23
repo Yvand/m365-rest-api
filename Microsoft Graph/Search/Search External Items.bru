@@ -7,13 +7,12 @@ meta {
 post {
   url: https://graph.microsoft.com/beta/search/query
   body: json
-auth: inherit
+  auth: inherit
 }
 
 headers {
   Content-Type: application/json
 }
-
 
 body:json {
   {
@@ -23,19 +22,15 @@ body:json {
           "microsoft.graph.externalItem"
         ],
         "contentSources": [
-          "/external/connections/connection_friendly_name"
+          "/external/connections/FileConnector1"
         ],
         "query": {
           "query_string": {
-            "query": "test"
+            "query": "Acetylsalicylic acid"
           }
         },
         "from": 0,
-        "size": 25,
-        "stored_fields": [
-          "number",
-          "shortdescription"
-        ]
+        "size": 25
       }
     ]
   }

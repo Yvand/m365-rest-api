@@ -7,13 +7,12 @@ meta {
 post {
   url: https://graph.microsoft.com/beta/search/query
   body: json
-auth: inherit
+  auth: inherit
 }
 
 headers {
   Content-Type: application/json
 }
-
 
 body:json {
   {
@@ -24,7 +23,7 @@ body:json {
         ],
         "query": {
           "query_string": {
-            "query": "test"
+            "query": "Acetylsalicylic acid"
           }
         },
         "from": 0,
