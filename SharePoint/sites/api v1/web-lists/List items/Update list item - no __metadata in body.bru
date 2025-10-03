@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('list1')/items(13)
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/getbytitle('docs')/items(5)
   body: json
   auth: inherit
 }
@@ -19,8 +19,7 @@ headers {
 
 body:json {
   {
-      "Title": "item postman new value",
-      "person1StringId": "12"
+      "OData__x005f_dlc_x005f_DocIdUrl": "<a href=\"https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/docs/_layouts/15/DocIdRedir.aspx?ID=3XDNUVUW63NT-1397784073-5\">3XDNUVUW63NT-1397784073-5</a>"
   }
   
 }

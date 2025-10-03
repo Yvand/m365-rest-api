@@ -1,0 +1,27 @@
+meta {
+  name: disable Defender plan
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.Compute/virtualMachines/{{machineName}}/providers/Microsoft.Security/pricings/virtualMachines?api-version=2024-01-01
+  body: json
+  auth: inherit
+}
+
+params:query {
+  api-version: 2024-01-01
+}
+
+body:json {
+  {
+    "properties": {
+      "pricingTier": "Free"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

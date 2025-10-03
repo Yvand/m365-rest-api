@@ -1,0 +1,19 @@
+meta {
+  name: show pricing
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.Compute/virtualMachines/{{machineName}}/providers/Microsoft.Security/pricings/virtualMachines?api-version=2024-01-01
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 2024-01-01
+}
+
+settings {
+  encodeUrl: true
+}
