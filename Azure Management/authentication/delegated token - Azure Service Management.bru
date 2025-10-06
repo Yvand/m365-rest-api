@@ -1,0 +1,30 @@
+meta {
+  name: delegated token - Azure Service Management
+  type: http
+  seq: 2
+}
+
+get {
+  url: 
+  body: none
+  auth: oauth2
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: https://bruno.contoso.local
+  authorization_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/authorize
+  access_token_url: https://login.microsoftonline.com/{{tenantPrefix}}.onmicrosoft.com/oauth2/v2.0/token
+  refresh_token_url: 
+  client_id: {{clientId}}
+  client_secret: {{clientSecret}}
+  scope: https://management.azure.com/.default
+  state: 
+  pkce: false
+  credentials_placement: body
+  credentials_id: credentials
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: true
+  auto_refresh_token: false
+}
