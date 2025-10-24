@@ -1,7 +1,7 @@
 meta {
-  name: Show a sharing link-Users
+  name: list users who can use a sharing link
   type: http
-  seq: 9
+  seq: 10
 }
 
 get {
@@ -10,11 +10,7 @@ get {
   auth: inherit
 }
 
-params:query {
-  ~$expand: permissionsInformation
-}
-
 headers {
-  Accept: application/json;odata=verbose
+  Accept: application/json
   Content-Type: application/json;odata=verbose
 }

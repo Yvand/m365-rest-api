@@ -1,0 +1,25 @@
+meta {
+  name: Search a DocId
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/search/query?querytext='dlcdocId:3XDNUVUW63NT-1397784073-4'&trimduplicates=false&selectproperties='Path,Title'&property='EnableDynamicGroups:true'&RowLimit=500
+  body: none
+  auth: inherit
+}
+
+params:query {
+  querytext: 'dlcdocId:3XDNUVUW63NT-1397784073-4'
+  trimduplicates: false
+  selectproperties: 'Path,Title'
+  property: 'EnableDynamicGroups:true'
+  RowLimit: 500
+}
+
+headers {
+  Accept: application/json;odata=nometadata
+  ContentType: application/json
+  ~Accept: application/json
+}
