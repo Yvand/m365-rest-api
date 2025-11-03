@@ -1,0 +1,23 @@
+meta {
+  name: update SPSite
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/site
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  ContentType: application/json
+}
+
+body:json {
+  {
+      "GroupId": "00000000-0000-0000-0000-000000000000"
+  }
+  
+}

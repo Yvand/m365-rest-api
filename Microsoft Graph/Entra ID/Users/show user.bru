@@ -1,0 +1,22 @@
+meta {
+  name: show user
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/users/clouduser4@MngEnvMCAP743237.onmicrosoft.com?$count=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $count: true
+  ~$select: Id, employeeId
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+  ConsistencyLevel: eventual
+}
