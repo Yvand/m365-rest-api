@@ -1,0 +1,24 @@
+meta {
+  name: list agents
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://substrate.office.com/m365Copilot//GetGptList?request={"optionsSets":["flux_gpt_data_retriever_enterprise"],"traceId":""}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  request: {"optionsSets":["flux_gpt_data_retriever_enterprise"],"traceId":""}
+}
+
+headers {
+  x-scenario: officeweb
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
