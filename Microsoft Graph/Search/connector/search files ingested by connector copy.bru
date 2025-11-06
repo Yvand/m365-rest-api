@@ -1,7 +1,7 @@
 meta {
-  name: Search Events
+  name: search files ingested by connector copy
   type: http
-  seq: 1
+  seq: 2
 }
 
 post {
@@ -19,15 +19,18 @@ body:json {
     "requests": [
       {
         "entityTypes": [
-          "microsoft.graph.event"
+          "microsoft.graph.externalItem"
+        ],
+        "contentSources": [
+          "/external/connections/FileConnector1"
         ],
         "query": {
           "query_string": {
-            "query": "test"
+            "query": "contents:'Acetylsalicylic acid'"
           }
         },
         "from": 0,
-        "size": 5
+        "size": 25
       }
     ]
   }

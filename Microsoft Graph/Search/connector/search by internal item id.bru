@@ -1,7 +1,7 @@
 meta {
-  name: search files ingested by connector
+  name: search by internal item id
   type: http
-  seq: 5
+  seq: 4
 }
 
 post {
@@ -26,7 +26,7 @@ body:json {
         ],
         "query": {
           "query_string": {
-            "query": "contents:'Acetylsalicylic acid'"
+            "query": "(itemId=AAAAACqOVyjP22ZElL1ConrldCAHABgTcH7YrJNAtEYf8XcaZvkAAACyjVoAABgTcH7YrJNAtEYf8XcaZvkAAANXEN4AAA2)"
           }
         },
         "from": 0,

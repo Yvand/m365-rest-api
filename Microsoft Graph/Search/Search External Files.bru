@@ -1,7 +1,7 @@
 meta {
   name: Search External Files
   type: http
-  seq: 4
+  seq: 3
 }
 
 post {
@@ -23,7 +23,7 @@ body:json {
         ],
         "query": {
           "query_string": {
-            "query": "Acetylsalicylic acid"
+            "query": "contents:'Acetylsalicylic acid'"
           }
         },
         "from": 0,
