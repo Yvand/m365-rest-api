@@ -1,0 +1,37 @@
+meta {
+  name: search files ingested by connector 4
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "entityTypes": [
+          "microsoft.graph.externalItem"
+        ],
+        "contentSources": [
+          "/external/connections/FileConnector1"
+        ],
+        "query": {
+          "query_string": {
+            "query": "createdBy:'BUILTIN\\Administrators'"
+          }
+        },
+        "from": 0,
+        "size": 25
+      }
+    ]
+  }
+}
