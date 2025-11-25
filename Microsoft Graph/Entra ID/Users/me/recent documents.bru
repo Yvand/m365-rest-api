@@ -1,11 +1,11 @@
 meta {
-  name: Delete a user
+  name: recent documents
   type: http
-  seq: 3
+  seq: 2
 }
 
-delete {
-  url: https://graph.microsoft.com/v1.0/users/testuser1@m365x997769.onmicrosoft.com
+get {
+  url: https://graph.microsoft.com/v1.0/me/drive/recent
   body: none
   auth: inherit
 }

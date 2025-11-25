@@ -1,7 +1,7 @@
 meta {
-  name: search files ingested by connector 4
+  name: search files ingested by connector 2
   type: http
-  seq: 5
+  seq: 2
 }
 
 post {
@@ -22,11 +22,11 @@ body:json {
           "microsoft.graph.externalItem"
         ],
         "contentSources": [
-          "/external/connections/FileConnector1"
+          "/external/connections/FileConnector2511211557"
         ],
         "query": {
           "query_string": {
-            "query": "createdBy:'BUILTIN\\Administrators'"
+            "query": "extension:pdf"
           }
         },
         "from": 0,

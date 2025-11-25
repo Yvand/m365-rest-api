@@ -1,7 +1,7 @@
 meta {
-  name: Search basic
+  name: Search basic 2 copy
   type: http
-  seq: 6
+  seq: 7
 }
 
 post {
@@ -22,7 +22,8 @@ body:json {
           "driveItem"
         ],
         "query": {
-          "queryString": "team path:\"https://mngenvmcap743237.sharepoint.com/sites/team1fromTeams/SiteAssets\""
+          "queryString": "extension:pdf",
+          "queryTemplate": "{searchTerms} path:\"https://spsites.yvand.net/\""
         },
         "fields": [
           "DocId",
