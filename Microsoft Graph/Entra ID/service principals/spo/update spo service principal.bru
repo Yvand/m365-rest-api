@@ -1,0 +1,28 @@
+meta {
+  name: update spo service principal
+  type: http
+  seq: 6
+}
+
+patch {
+  url: https://graph.microsoft.com/v1.0//servicePrincipals(appId='00000003-0000-0ff1-ce00-000000000000')
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "servicePrincipalNames": [
+      "https://microsoft.sharepoint-df.com",
+      "00000003-0000-0ff1-ce00-000000000000",
+      "00000003-0000-0ff1-ce00-000000000000/*.sharepoint.com",
+      "https://onedrive.cloud.microsoft/",
+      "api://00000003-0000-0ff1-ce00-000000000000",
+      "https://spsdynamics.yvand.net"
+    ]
+  }
+}
