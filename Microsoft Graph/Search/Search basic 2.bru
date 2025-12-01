@@ -23,7 +23,7 @@ body:json {
         ],
         "query": {
           "queryString": "team",
-          "queryTemplate": "{searchTerms} path:\"https://mngenvmcap743237.sharepoint.com/sites/team1fromTeams/SiteAssets\""
+          "queryTemplate": "{searchTerms} path:\"https://{{tenantPrefix}}.sharepoint.com/sites/team1fromTeams/SiteAssets\""
         },
         "fields": [
           "DocId",
