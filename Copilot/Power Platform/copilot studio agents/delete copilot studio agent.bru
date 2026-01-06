@@ -1,0 +1,20 @@
+meta {
+  name: delete copilot studio agent
+  type: http
+  seq: 1
+}
+
+delete {
+  url: https://api.powerplatform.com/copilotstudio/environments/{{environmentId}}/bots/{{agentId}}/api/botAdminOperations?api-version=1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 1
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
