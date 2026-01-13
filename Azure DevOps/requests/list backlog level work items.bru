@@ -1,0 +1,25 @@
+meta {
+  name: list backlog level work items
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://dev.azure.com/{{adoOrgName}}/{{projectName}}/{{team}}/_apis/work/backlogs/{{backlogId}}/workItems?api-version=7.1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 7.1
+}
+
+vars:pre-request {
+  team: EntraCP Team
+  backlogId: Microsoft.EpicCategory
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,16 @@
+meta {
+  name: list projects
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://dev.azure.com/{{adoOrgName}}/_apis/projects
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
