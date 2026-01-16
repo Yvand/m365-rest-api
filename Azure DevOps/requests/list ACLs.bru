@@ -1,0 +1,26 @@
+meta {
+  name: list ACLs
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://dev.azure.com/{{adoOrgName}}/_apis/accesscontrollists/{{securityNamespaceId}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~api-version: 7.1
+}
+
+vars:pre-request {
+  team: EntraCP Team
+  backlogId: Microsoft.EpicCategory
+  securityNamespaceId: c788c23e-1b46-4162-8f5e-d7585343b5de
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
