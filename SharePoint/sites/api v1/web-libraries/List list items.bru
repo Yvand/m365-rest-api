@@ -1,22 +1,28 @@
 meta {
   name: List list items
   type: http
-  seq: 9
+  seq: 8
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items?$filter=ID eq 2&$select=ID, Title, Modified_x0020_By, Created_x0020_By, ContentType/Id,ContentType/Name&$expand=ContentType, Properties
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('{{docLibTitle}}')/items?$filter=ID eq {{itemId}}&$select=Id, Created, Modified,  OData__dlc_DocId, OData__dlc_DocIdUrl/Url
   body: none
   auth: inherit
 }
 
 params:query {
-  $filter: ID eq 2
-  $select: ID, Title, Modified_x0020_By, Created_x0020_By, ContentType/Id,ContentType/Name
-  $expand: ContentType, Properties
+  $filter: ID eq {{itemId}}
+  $select: Id, Created, Modified,  OData__dlc_DocId, OData__dlc_DocIdUrl/Url
+  ~$select: ID, Title, Modified_x0020_By, Created_x0020_By, ContentType/Id,ContentType/Name
+  ~$expand: ContentType, Properties
 }
 
 headers {
-  Accept: application/json;odata=verbose
+  Accept: application/json
   ContentType: application/json;odata=verbose
+}
+
+vars:pre-request {
+  docLibTitle: docs
+  itemId: 4
 }

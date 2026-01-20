@@ -1,11 +1,11 @@
 meta {
   name: List list items Copy
   type: http
-  seq: 10
+  seq: 9
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items?$select=Id, Title, ServerRedirectedEmbedUri
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('{{docLibTitle}}')/items?$select=Id, Title, ServerRedirectedEmbedUri
   body: none
   auth: inherit
 }
@@ -18,4 +18,8 @@ params:query {
 headers {
   Accept: application/json;odata=verbose
   ContentType: application/json;odata=verbose
+}
+
+vars:pre-request {
+  docLibTitle: Documents
 }

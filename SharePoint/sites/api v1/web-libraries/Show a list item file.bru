@@ -5,12 +5,21 @@ meta {
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items(1)/File
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('{{docLibTitle}}')/items({{itemId}})/File?$select=ID, Name, TimeCreated, TimeLastModified, ServerRelativeUrl
   body: none
   auth: inherit
 }
 
+params:query {
+  $select: ID, Name, TimeCreated, TimeLastModified, ServerRelativeUrl
+}
+
 headers {
-  Accept: application/json;odata=verbose
+  Accept: application/json
   ContentType: application/json;odata=verbose
+}
+
+vars:pre-request {
+  docLibTitle: docs
+  itemId: 4
 }

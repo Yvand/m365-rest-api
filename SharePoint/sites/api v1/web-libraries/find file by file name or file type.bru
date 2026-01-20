@@ -1,11 +1,11 @@
 meta {
   name: find file by file name or file type
   type: http
-  seq: 11
+  seq: 10
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('Documents')/items?$select=Id, Title, ServerRedirectedEmbedUri, FileLeafRef, AuthorId, EditorId&$filter=FileLeafRef eq 'Lorem ipsum.pdf'
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/lists/GetByTitle('{{docLibTitle}}')/items?$select=Id, Title, ServerRedirectedEmbedUri, FileLeafRef, AuthorId, EditorId&$filter=FileLeafRef eq 'Lorem ipsum.pdf'
   body: none
   auth: inherit
 }
@@ -19,4 +19,8 @@ params:query {
 headers {
   Accept: application/json;odata=verbose
   ContentType: application/json;odata=verbose
+}
+
+vars:pre-request {
+  docLibTitle: Documents
 }
