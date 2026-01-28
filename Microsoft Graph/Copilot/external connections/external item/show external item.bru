@@ -1,0 +1,20 @@
+meta {
+  name: show external item
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/external/connections/{{connectionId}}/items/{{externalItemId}}
+  body: none
+  auth: inherit
+}
+
+vars:pre-request {
+  connectionId: AzureDevOps2511191104
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
