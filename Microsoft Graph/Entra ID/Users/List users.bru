@@ -5,18 +5,21 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/users?$select=id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1&$filter=startswith(userPrincipalName, 'xpradeep')
+  url: https://graph.microsoft.com/v1.0/users?$select=id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1, createdDateTime
   body: none
   auth: inherit
 }
 
 params:query {
-  $select: id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1
-  $filter: startswith(userPrincipalName, 'xpradeep')
+  $select: id, displayName, userPrincipalName, UserType, mail, givenName, extension_db1e6850023e4d439ebc39871218d32e_extensionAttribute1, createdDateTime
+  ~$filter: UserType eq 'Member' and not(endswith(userPrincipalName, 'onmicrosoft.com'))
+  ~$filter: startswith(userPrincipalName, 'xpradeep')
   ~$filter: Department eq 'Finance'
+  ~$filter: lastModifiedDateTime le '2026-01-01T16:00:00Z'
 }
 
 headers {
   Content-Type: application/json
   Accept: application/json
+  ConsistencyLevel: eventual
 }
