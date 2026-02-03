@@ -1,13 +1,13 @@
 meta {
-  name: Get Alerts filter by Category
+  name: list alerts
   type: http
-  seq: 4
+  seq: 1
 }
 
 get {
   url: https://graph.microsoft.com/v1.0/security/alerts?$filter=Category eq 'ransomware'&$top=5
   body: none
-auth: inherit
+  auth: inherit
 }
 
 params:query {
@@ -15,8 +15,7 @@ params:query {
   $top: 5
 }
 
-headers {
-
+settings {
+  encodeUrl: true
+  timeout: 0
 }
-
-

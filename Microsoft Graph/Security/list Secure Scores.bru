@@ -1,21 +1,20 @@
 meta {
-  name: Get Secure Scores
+  name: list Secure Scores
   type: http
-  seq: 7
+  seq: 2
 }
 
 get {
   url: https://graph.microsoft.com/v1.0/security/secureScores?$top=5
   body: none
-auth: inherit
+  auth: inherit
 }
 
 params:query {
   $top: 5
 }
 
-headers {
-
+settings {
+  encodeUrl: true
+  timeout: 0
 }
-
-

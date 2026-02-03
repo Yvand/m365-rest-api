@@ -1,17 +1,16 @@
 meta {
-  name: Get TI Indicators
+  name: list TI Indicators
   type: http
-  seq: 9
+  seq: 4
 }
 
 get {
   url: https://graph.microsoft.com/beta/security/tiIndicators
   body: none
-auth: inherit
+  auth: inherit
 }
 
-headers {
-
+settings {
+  encodeUrl: true
+  timeout: 0
 }
-
-

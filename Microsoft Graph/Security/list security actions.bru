@@ -1,17 +1,16 @@
 meta {
-  name: Get Security Actions
+  name: list security actions
   type: http
-  seq: 11
+  seq: 3
 }
 
 get {
   url: https://graph.microsoft.com/beta/security/securityActions
   body: none
-auth: inherit
+  auth: inherit
 }
 
-headers {
-
+settings {
+  encodeUrl: true
+  timeout: 0
 }
-
-
