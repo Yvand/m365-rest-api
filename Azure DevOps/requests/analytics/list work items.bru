@@ -1,0 +1,20 @@
+meta {
+  name: list work items
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://analytics.dev.azure.com/{{adoOrgName}}/{{projectName}}/_odata/v4.0-preview/WorkItems?$apply=aggregate(WorkItemId with max as maxWorkItemId, WorkItemId with min as minWorkItemId)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $apply: aggregate(WorkItemId with max as maxWorkItemId, WorkItemId with min as minWorkItemId)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
