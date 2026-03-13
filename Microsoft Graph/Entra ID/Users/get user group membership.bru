@@ -1,0 +1,23 @@
+meta {
+  name: get user group membership
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://graph.microsoft.com/v1.0/users/admin@{{tenantPrefix}}.onmicrosoft.com/microsoft.graph.getMemberGroups
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+  ConsistencyLevel: eventual
+}
+
+body:json {
+  {
+    "securityEnabledOnly": false
+  }
+}

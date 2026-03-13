@@ -5,17 +5,18 @@ meta {
 }
 
 get {
-  url: https://graph.microsoft.com/v1.0/groups?$select=ID, displayName, groupTypes, mailEnabled, securityEnabled&$filter=startswith(DisplayName, 'EntracpTest')
+  url: https://graph.microsoft.com/v1.0/groups?$select=ID, displayName, groupTypes, securityEnabled, onPremisesSecurityIdentifier&$filter=displayName eq 'site1'
   body: none
   auth: inherit
 }
 
 params:query {
-  $select: ID, displayName, groupTypes, mailEnabled, securityEnabled
-  $filter: startswith(DisplayName, 'EntracpTest')
+  $select: ID, displayName, groupTypes, securityEnabled, onPremisesSecurityIdentifier
+  $filter: displayName eq 'site1'
+  ~$select: ID, displayName, groupTypes, mailEnabled, securityEnabled
+  ~$filter: startswith(DisplayName, 'EntracpTest')
   ~$count: true
   ~$top: 30
-  ~$filter: displayName eq 'frteam1'
   ~$filter: securityEnabled eq false
   ~$filter: startswith(DisplayName, 'all company')
 }
