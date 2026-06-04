@@ -1,16 +1,17 @@
 meta {
   name: wiql query
   type: http
-  seq: 6
+  seq: 7
 }
 
 post {
-  url: https://dev.azure.com/{{adoOrgName}}/{{projectName}}/_apis/wit/wiql?api-version=7.1
+  url: https://dev.azure.com/{{adoOrgName}}/{{projectName}}/_apis/wit/wiql?$top=100&api-version=7.1
   body: json
   auth: inherit
 }
 
 params:query {
+  $top: 100
   api-version: 7.1
 }
 

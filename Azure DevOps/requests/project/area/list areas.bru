@@ -1,0 +1,21 @@
+meta {
+  name: list areas
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://dev.azure.com/{{adoOrgName}}/{{projectName}}/_apis/wit/classificationnodes/areas?$depth=100&api-version=7.1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $depth: 100
+  api-version: 7.1
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
