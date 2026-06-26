@@ -1,17 +1,17 @@
 meta {
-  name: List RoleAssignments
+  name: show current user groups
   type: http
-  seq: 16
+  seq: 24
 }
 
 get {
-  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/RoleAssignments
+  url: https://{{tenantPrefix}}.sharepoint.com{{siteRelativePath}}/_api/web/CurrentUser/Groups
   body: none
   auth: inherit
 }
 
 params:query {
-  ~$select: Id, Name
+  ~$select: LoginName
 }
 
 headers {
