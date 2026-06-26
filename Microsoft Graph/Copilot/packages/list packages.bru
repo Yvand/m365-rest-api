@@ -1,0 +1,25 @@
+meta {
+  name: list packages
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://graph.microsoft.com/beta/copilot/admin/catalog/packages?supportedHosts=Copilot&elementTypes=DeclarativeAgent
+  body: none
+  auth: inherit
+}
+
+params:query {
+  supportedHosts: Copilot
+  elementTypes: DeclarativeAgent
+}
+
+vars:pre-request {
+  connectionId: AzureDevOps2511191104
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
