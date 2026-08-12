@@ -1,0 +1,27 @@
+meta {
+  name: list available SKUs
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Compute/skus?api-version=2021-07-01&$filter=location eq 'france central'&$select=name
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 2021-07-01
+  $filter: location eq 'france central'
+  $select: name
+  ~includeExtendedLocations: 
+  ~$select: name, location, id
+}
+
+vars:pre-request {
+  location: francecentral
+}
+
+docs {
+  https://learn.microsoft.com/en-us/rest/api/resources/resource-groups/list?view=rest-resources-2021-04-01&viewFallbackFrom=rest-resources-2022-12-01
+}

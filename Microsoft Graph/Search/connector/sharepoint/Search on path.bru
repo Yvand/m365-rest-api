@@ -1,0 +1,42 @@
+meta {
+  name: Search on path
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "entityTypes": [
+          "driveItem"
+        ],
+        "query": {
+          "queryString": "FileExtension:jpg",
+          "queryTemplate": "({searchTerms}) path:\"https://spsites.yvand.net/\""
+        },
+        "fields": [
+          "DocId",
+          "SiteID",
+          "WebID",
+          "ListID",
+          "UniqueID",
+          "Path",
+          "DocumentLink",
+          "WebUrl",
+          "FIleID"
+        ]
+      }
+    ]
+  }
+}

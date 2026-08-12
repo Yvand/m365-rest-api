@@ -1,7 +1,7 @@
 meta {
   name: delegated token - Azure Service Management
   type: http
-  seq: 2
+  seq: 1
 }
 
 get {
@@ -20,9 +20,10 @@ auth:oauth2 {
   client_secret: {{clientSecret}}
   scope: https://management.azure.com/.default
   state: 
-  pkce: false
+  pkce: true
   credentials_placement: body
   credentials_id: credentials
+  token_source: access_token
   token_placement: header
   token_header_prefix: Bearer
   auto_fetch_token: true

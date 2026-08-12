@@ -1,0 +1,22 @@
+meta {
+  name: my calendar's events
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://graph.microsoft.com/v1.0/me/calendarView?startDateTime=2026-08-10&endDateTime=2026-08-11&$select=subject,start
+  body: none
+  auth: inherit
+}
+
+params:query {
+  startDateTime: 2026-08-10
+  endDateTime: 2026-08-11
+  $select: subject,start
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
