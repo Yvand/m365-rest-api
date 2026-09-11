@@ -1,0 +1,35 @@
+meta {
+  name: Search on path 2
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://graph.microsoft.com/beta/search/query
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "entityTypes": [
+          "driveItem"
+        ],
+        "query": {
+          "queryString": "*",
+          "queryTemplate": "({searchTerms}) path:\"https://mngenvmcap743237.sharepoint.com/sites/team/Shared%20Documents/non%20special%20folder\""
+        },
+        "fields": [
+          "Name",
+          "Path"
+        ]
+      }
+    ]
+  }
+}
